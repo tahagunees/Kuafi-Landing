@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaPlay, FaYoutube, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane } from "react-icons/fa";
+import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane } from "react-icons/fa";
 
 export default function Home() {
   // Smooth scroll özelliğini aktifleştir
