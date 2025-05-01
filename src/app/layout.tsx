@@ -5,20 +5,20 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Randevue.ai | WhatsApp Üzerinden Çalışan Randevu Asistanınız",
+  title: "Kuafi | WhatsApp Üzerinden Çalışan Randevu Asistanınız",
   description: "WhatsApp üzerinden 7/24 otomatik randevu alan, iptal ve değişiklik yapabilen, müşterilerinize hatırlatma mesajları gönderen yapay zeka asistanınız.",
-  keywords: "whatsapp randevu, online randevu sistemi, kuaför randevu, otomatik randevu, whatsapp asistan, yapay zeka asistan, randevu otomasyonu, randevue.ai",
+  keywords: "whatsapp randevu, online randevu sistemi, kuaför randevu, otomatik randevu, whatsapp asistan, yapay zeka asistan, randevu otomasyonu, kuafi",
   openGraph: {
-    title: "Randevue.ai | WhatsApp Üzerinden Çalışan Randevu Asistanınız",
+    title: "Kuafi | WhatsApp Üzerinden Çalışan Randevu Asistanınız",
     description: "WhatsApp üzerinden 7/24 otomatik randevu alan, iptal ve değişiklik yapabilen, müşterilerinize hatırlatma mesajları gönderen yapay zeka asistanınız.",
-    url: "https://randevue.ai",
-    siteName: "randevue.ai",
+    url: "https://kuafi.com",
+    siteName: "kuafi.com",
     images: [
       {
-        url: "https://randevue.ai/opengraph-image.jpg",
+        url: "https://kuafi.com/opengraph-image.jpg",
         width: 1200,
         height: 630,
-        alt: "randevue.ai WhatsApp Randevu Asistanı",
+        alt: "Kuafi WhatsApp Randevu Asistanı",
       },
     ],
     locale: "tr_TR",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Randevue.ai | WhatsApp Üzerinden Çalışan Randevu Asistanınız",
+    title: "Kuafi | WhatsApp Üzerinden Çalışan Randevu Asistanınız",
     description: "WhatsApp üzerinden 7/24 otomatik randevu alan, iptal ve değişiklik yapabilen, müşterilerinize hatırlatma mesajları gönderen yapay zeka asistanınız.",
-    images: ["https://randevue.ai/twitter-image.jpg"],
+    images: ["https://kuafi.com/twitter-image.jpg"],
   },
   alternates: {
-    canonical: "https://randevue.ai",
+    canonical: "https://kuafi.com",
     languages: {
-      "tr-TR": "https://randevue.ai",
+      "tr-TR": "https://kuafi.com",
     },
   },
 };

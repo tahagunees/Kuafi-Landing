@@ -25,7 +25,7 @@ export default function PricingCard({
   period,
   features,
   popular = false,
-  buttonText = "Get Started Now",
+  buttonText = "Hemen Başla",
   onClick,
 }: PricingCardProps) {
   return (
@@ -43,7 +43,7 @@ export default function PricingCard({
       {popular && (
         <div className="absolute top-0 right-0">
           <div className="bg-[#25D366] dark:bg-[#00A884] text-white text-xs font-bold px-3 py-1 rounded-bl-md">
-            SAVE 20%
+            %20 İNDİRİM
           </div>
         </div>
       )}

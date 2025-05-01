@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane } from "react-icons/fa";
+import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane, FaUserCog, FaChartLine } from "react-icons/fa";
 
 export default function Home() {
   // Smooth scroll özelliğini aktifleştir
@@ -32,7 +32,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Randevue<span className="text-[#25D366]">.ai</span></h1>
+              <h1 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
             </div>
             <nav className="hidden md:flex space-x-1">
               <button 
@@ -52,6 +52,12 @@ export default function Home() {
                 className="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-100"
               >
                 Fiyatlandırma
+              </button>
+              <button
+                onClick={() => scrollToSection('admin-features')}
+                className="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-100"
+              >
+                Admin Panel
               </button>
             </nav>
             <button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-md font-medium transition-colors">
@@ -145,13 +151,13 @@ export default function Home() {
                       <FaWhatsapp className="text-white text-lg" />
                     </div>
                     <div className="ml-3">
-                      <h3 className="font-medium text-white text-sm">Randevue.ai Asistanı</h3>
+                      <h3 className="font-medium text-white text-sm">Kuafi Asistanı</h3>
                       <p className="text-xs text-white/80">Çevrimiçi</p>
                     </div>
                   </div>
                   <div className="bg-[#ECE5DD] h-full p-4">
                     <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                      <p className="text-sm text-gray-800">Merhaba! Ben randevue.ai asistanı. Size nasıl yardımcı olabilirim?</p>
+                      <p className="text-sm text-gray-800">Merhaba! Ben Kuafi asistanı. Size nasıl yardımcı olabilirim?</p>
                       <p className="text-right text-xs text-gray-500 mt-1">10:30</p>
                     </div>
                     <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] ml-auto mb-3">
@@ -174,7 +180,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Sunduğumuz Faydalar</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Neden Randevue.ai?</p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Neden Kuafi.com?</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -288,7 +294,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Başarı Metrikleri</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Randevue.ai kullanan işletmelerin gerçek sonuçları</p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Kuafi.com kullanan işletmelerin gerçek sonuçları</p>
             </div>
             
             <div className="grid md:grid-cols-4 gap-6">
@@ -362,7 +368,7 @@ export default function Home() {
                 </div>
                 <div className="md:w-3/4 md:pl-8">
                   <p className="text-xl italic text-gray-700 mb-4">
-                    "Randevue.ai ile çalışmaya başladıktan sonra telefonda geçirdiğim vakit %90 azaldı ve randevu doluluk oranim %67 arttı. Artık müşterilerime daha kaliteli hizmet verebiliyorum."
+                    "Kuafi.com ile çalışmaya başladıktan sonra telefonda geçirdiğim vakit %90 azaldı ve randevu doluluk oranim %67 arttı. Artık müşterilerime daha kaliteli hizmet verebiliyorum."
                   </p>
                   <p className="font-bold text-gray-800">Ahmet Kuaför</p>
                   <p className="text-gray-500">İstanbul, Kadıköy</p>
@@ -467,12 +473,12 @@ export default function Home() {
                     muted
                     loop
                   >
-                    <source src="/videos/randevue-demo.mp4" type="video/mp4" />
+                    <source src="/videos/kuafi-demo.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
                 <div className="p-4 bg-white text-center">
-                  <p className="text-[#25D366] font-medium">Randevue.ai'yi 45 saniyede keşfedin</p>
+                  <p className="text-[#25D366] font-medium">Kuafi.com'yi 45 saniyede keşfedin</p>
                 </div>
               </div>
             </motion.div>
@@ -494,7 +500,7 @@ export default function Home() {
                 <thead className="text-xs uppercase bg-gray-100">
                   <tr>
                     <th scope="col" className="px-6 py-3">Özellikler</th>
-                    <th scope="col" className="px-6 py-3 text-center">Randevue.ai</th>
+                    <th scope="col" className="px-6 py-3 text-center">Kuafi.com</th>
                     <th scope="col" className="px-6 py-3 text-center">Rakip X</th>
                     <th scope="col" className="px-6 py-3 text-center">Rakip Y</th>
                   </tr>
@@ -518,11 +524,17 @@ export default function Home() {
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
                   </tr>
-                  <tr>
+                  <tr className="border-b">
                     <td className="px-6 py-4 font-medium">7/24 Türkçe Destek</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
+                  </tr>
+                  <tr>
+                    <td className="px-6 py-4 font-medium">Gelişmiş Admin Panel</td>
+                    <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
+                    <td className="px-6 py-4 text-center text-red-500">✗</td>
+                    <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                   </tr>
                 </tbody>
               </table>
@@ -624,6 +636,10 @@ export default function Home() {
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
                       <span>WhatsApp desteği</span>
                     </li>
+                    <li className="flex items-center text-gray-600">
+                      <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
+                      <span>Temel admin panel özellikleri</span>
+                    </li>
                     <div className="mt-4 border-t border-gray-200 pt-4">
                       <p className="text-gray-500 text-sm">WhatsApp mesaj maliyetleri ($0.0055/mesaj) sizin tarafınızdan karşılanır. Detaylı bilgi için <a href="#" className="text-[#25D366] hover:underline">tıklayın</a>.</p>
                     </div>
@@ -683,6 +699,10 @@ export default function Home() {
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
                       <span className="font-medium">İlk 1000 mesaj bizden! (Değer: $50)</span>
+                    </li>
+                    <li className="flex items-center text-gray-600">
+                      <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
+                      <span className="font-medium">Gelişmiş admin panel özellikleri</span>
                     </li>
                     <div className="mt-4 border-t border-gray-200 pt-4">
                       <p className="text-gray-500 text-sm">Premium pakette WhatsApp mesaj maliyetleri bizim tarafımızdan karşılanır.</p>
@@ -751,7 +771,7 @@ export default function Home() {
                     Canlı Demo
                   </h2>
                   <p className="text-xl text-gray-600 mb-8 max-w-3xl">
-                    Tek tıkla botla konuşmaya başlayın ve randevue.ai'yi hemen deneyimleyin.
+                    Tek tıkla botla konuşmaya başlayın ve Kuafi.com'yi hemen deneyimleyin.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <motion.button 
@@ -780,7 +800,7 @@ export default function Home() {
                           <FaWhatsapp className="text-white text-lg" />
                         </div>
                         <div className="ml-3">
-                          <h3 className="font-medium text-white text-sm">Randevue.ai Asistanı</h3>
+                          <h3 className="font-medium text-white text-sm">Kuafi Asistanı</h3>
                           <p className="text-xs text-white/80">Çevrimiçi</p>
                         </div>
                       </div>
@@ -788,7 +808,7 @@ export default function Home() {
                       <div className="bg-[#ECE5DD] h-[calc(100%-4rem)] p-4 overflow-y-auto">
                         <div className="flex flex-col space-y-3">
                           <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                            <p className="text-sm text-gray-800">Merhaba! Ben randevue.ai asistanı. Size nasıl yardımcı olabilirim?</p>
+                            <p className="text-sm text-gray-800">Merhaba! Ben Kuafi asistanı. Size nasıl yardımcı olabilirim?</p>
                             <p className="text-right text-xs text-gray-500 mt-1">10:30</p>
                           </div>
                           <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] ml-auto mb-3">
@@ -826,7 +846,7 @@ export default function Home() {
                 className="bg-white p-6 rounded-xl shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">WhatsApp API zor mu kurulur?</h3>
-                <p className="text-gray-600">Hayır, Randevue.ai ile WhatsApp API kurulumu tamamen bizim tarafımızdan yapılır. Premium paketimizde WhatsApp Business API kurulumu ve entegrasyonu dahildir.</p>
+                <p className="text-gray-600">Hayır, Kuafi ile WhatsApp API kurulumu tamamen bizim tarafımızdan yapılır. Premium paketimizde WhatsApp Business API kurulumu ve entegrasyonu dahildir.</p>
               </motion.div>
               
               <motion.div
@@ -870,7 +890,175 @@ export default function Home() {
                 className="bg-white p-6 rounded-xl shadow-sm"
               >
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Eski randevularım ne oluyor?</h3>
-                <p className="text-gray-600">Mevcut takvim sisteminizdeki tüm randevular korunur. Randevue.ai, mevcut randevularınıza saygı gösterecek şekilde çalışır.</p>
+                <p className="text-gray-600">Mevcut takvim sisteminizdeki tüm randevular korunur. Kuafi, mevcut randevularınıza saygı gösterecek şekilde çalışır.</p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Admin Panel Özellikleri Section */}
+        <section id="admin-features" className="py-16 px-4 bg-white scroll-mt-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">YENİ</span>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">Gelişmiş Yönetim Paneli</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                İşletmenizi tek noktadan yönetebileceğiniz güçlü admin paneliyle tanışın
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <motion.div 
+                whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+              >
+                <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
+                  <FaCalendarCheck className="text-[#25D366] text-2xl" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Randevu Yönetimi</h3>
+                <p className="text-gray-600">
+                  Tüm randevularınızı görüntüleyin, düzenleyin ve iptal edin. Boş saatleri ve yoğun günleri kolayca takip edin.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+              >
+                <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
+                  <FaUserCog className="text-[#25D366] text-2xl" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Müşteri Veritabanı</h3>
+                <p className="text-gray-600">
+                  Müşteri bilgilerinizi tek bir yerden yönetin. Randevu geçmişi, tercihler ve iletişim bilgilerini kolayca erişin.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+              >
+                <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
+                  <FaChartLine className="text-[#25D366] text-2xl" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Analitik ve Raporlar</h3>
+                <p className="text-gray-600">
+                  İşletmenizin performansını ölçün. Doluluk oranları, iptal istatistikleri ve gelir raporlarına erişin.
+                </p>
+              </motion.div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="md:w-1/2">
+                <img 
+                  src="/admin-dashboard.jpg" 
+                  alt="Admin Panel Dashboard" 
+                  className="rounded-lg shadow-lg w-full"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://via.placeholder.com/600x400?text=Admin+Dashboard";
+                  }}
+                />
+              </div>
+              
+              <div className="md:w-1/2 space-y-6">
+                <h3 className="text-2xl font-bold text-gray-800">Özelleştirilebilir Kontrol Paneli</h3>
+                <p className="text-gray-600">
+                  Yönetim panelinizi ihtiyaçlarınıza göre özelleştirin. Sizin için önemli olan metrikleri ön plana çıkarın.
+                </p>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
+                      <FaCheck className="h-3 w-3 text-[#25D366]" />
+                    </div>
+                    <p className="ml-3 text-gray-600">Günlük, haftalık ve aylık randevu görünümleri</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
+                      <FaCheck className="h-3 w-3 text-[#25D366]" />
+                    </div>
+                    <p className="ml-3 text-gray-600">WhatsApp mesajlaşma geçmişi ve istatistikleri</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
+                      <FaCheck className="h-3 w-3 text-[#25D366]" />
+                    </div>
+                    <p className="ml-3 text-gray-600">Özelleştirilebilir otomatik mesaj şablonları</p>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
+                      <FaCheck className="h-3 w-3 text-[#25D366]" />
+                    </div>
+                    <p className="ml-3 text-gray-600">Detaylı finansal raporlar ve tahminler</p>
+                  </li>
+                </ul>
+                
+                <div className="pt-6">
+                  <button className="px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg font-medium transition-colors flex items-center">
+                    <span>Daha Fazla Bilgi</span>
+                    <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-16 grid md:grid-cols-2 gap-8">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-gray-50 p-8 rounded-xl shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Mobil Erişim</h3>
+                <p className="text-gray-600 mb-6">
+                  Admin panelinize dilediğiniz yerden, dilediğiniz cihazdan erişin. Tamamen mobil uyumlu arayüz sayesinde yolda bile işletmenizi yönetin.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="flex-shrink-0 h-12 w-12 rounded-full bg-[#e1f5e9] flex items-center justify-center">
+                    <FaMobileAlt className="h-6 w-6 text-[#25D366]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">%100 Mobil Uyumlu</p>
+                    <p className="text-sm text-gray-500">Tüm cihazlarda mükemmel deneyim</p>
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-gray-50 p-8 rounded-xl shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Çoklu Kullanıcı Desteği</h3>
+                <p className="text-gray-600 mb-6">
+                  Ekibinizin farklı üyelerine özel izinler tanımlayın. Kimin neyi görebileceğini ve düzenleyebileceğini siz belirleyin.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="flex-shrink-0 h-12 w-12 rounded-full bg-[#e1f5e9] flex items-center justify-center">
+                    <FaUserCog className="h-6 w-6 text-[#25D366]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">Rol Bazlı Erişim</p>
+                    <p className="text-sm text-gray-500">Yönetici, çalışan ve asistan rolleri</p>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -887,7 +1075,7 @@ export default function Home() {
                 Hızlı İletişim ve Referanslar
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Türkiye'nin önde gelen 500+ işletmesi randevue.ai ile randevu sistemlerini otomatikleştiriyor
+                Türkiye'nin önde gelen 500+ işletmesi Kuafi.com ile randevu sistemlerini otomatikleştiriyor
               </p>
             </div>
 
@@ -919,7 +1107,7 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="italic text-gray-700 mb-3">
-                    "Randevue.ai'yi kullanmaya başladıktan sonra boş randevu saatlerim %80 azaldı. Artık telefonla uğraşmak yerine müşterilerime odaklanabiliyorum."
+                    "Kuafi.com'yi kullanmaya başladıktan sonra boş randevu saatlerim %80 azaldı. Artık telefonla uğraşmak yerine müşterilerime odaklanabiliyorum."
                   </p>
                   <p className="text-gray-600 text-sm">
                     <FaCalendarCheck className="inline-block mr-1 text-[#25D366]" /> 4 aydır kullanıyor
@@ -1064,7 +1252,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Randevue<span className="text-[#25D366]">.ai</span></h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Kuafi<span className="text-[#25D366]">.com</span></h2>
               <p className="text-gray-600">WhatsApp üzerinden çalışan randevu asistanınız</p>
             </div>
             
@@ -1081,8 +1269,8 @@ export default function Home() {
             </div>
             
             <div className="flex flex-col items-center md:items-end">
-              <a href="mailto:info@randevue.ai" className="text-gray-600 hover:text-[#25D366] mb-2 transition-colors">
-                info@randevue.ai
+              <a href="mailto:info@kuafi.com" className="text-gray-600 hover:text-[#25D366] mb-2 transition-colors">
+                info@kuafi.com
               </a>
               <motion.a 
                 href="#" 
@@ -1097,7 +1285,7 @@ export default function Home() {
           <div className="border-t border-gray-200 mt-8 pt-8">
             <div className="flex justify-between items-center flex-wrap gap-4">
               <p className="text-gray-500 text-sm">
-                © {new Date().getFullYear()} randevue.ai. Tüm hakları saklıdır.
+                © {new Date().getFullYear()} Kuafi.com. Tüm hakları saklıdır.
               </p>
               <div className="flex space-x-4 text-sm">
                 <a href="#" className="text-gray-500 hover:text-[#25D366] transition-colors">Gizlilik Politikası</a>

@@ -1,6 +1,6 @@
-# Randevue.ai - WhatsApp Üzerinden Çalışan Randevu Asistanı
+# Kuafi.com - WhatsApp Üzerinden Çalışan Randevu Asistanı
 
-Bu proje, berberler, güzellik merkezleri ve kuaförler için AI destekli WhatsApp randevu asistanı olan Randevue.ai'nin landing page'ini içerir.
+Bu proje, berberler, güzellik merkezleri ve kuaförler için AI destekli WhatsApp randevu asistanı olan Kuafi.com'un landing page'ini içerir.
 
 ## Teknolojiler
 
@@ -22,10 +22,10 @@ Bu proje, berberler, güzellik merkezleri ve kuaförler için AI destekli WhatsA
 
 ```bash
 # Repoyu klonlayın
-git clone https://github.com/tahagunees/randevuu-.git
+git clone https://github.com/tahagunees/kuafi-landing.git
 
 # Proje dizinine gidin
-cd randevuu-
+cd kuafi-landing
 
 # Bağımlılıkları yükleyin
 npm install
@@ -36,4 +36,4 @@ npm run dev
 
 ## Vercel Deployment
 
-Proje Vercel'de deploy edilmiştir. [Randevue.ai](https://randevue.ai) adresinden canlı versiyonu görebilirsiniz.
+Proje Vercel'de deploy edilmiştir. [Kuafi.com](https://kuafi.com) adresinden canlı versiyonu görebilirsiniz.
