@@ -205,7 +205,7 @@ export default function Terms() {
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>{t('terms.contact.email')}</li>
                     <li>{t('terms.contact.phone')}</li>
-                    <li>{t('terms.contact.address')}</li>
+                    
                   </ul>
                 </div>
               </motion.section>

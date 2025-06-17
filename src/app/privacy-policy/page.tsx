@@ -307,7 +307,7 @@ export default function PrivacyPolicy() {
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>{t('privacyPolicy.contact.email')}</li>
                     <li>{t('privacyPolicy.contact.phone')}</li>
-                    <li>{t('privacyPolicy.contact.address')}</li>
+                  
                   </ul>
                 </div>
               </motion.section>

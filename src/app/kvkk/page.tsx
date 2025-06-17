@@ -221,7 +221,7 @@ export default function KVKK() {
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li>{t('kvkk.contact.email')}</li>
                     <li>{t('kvkk.contact.phone')}</li>
-                    <li>{t('kvkk.contact.address')}</li>
+                   
                   </ul>
                 </div>
               </motion.section>

@@ -30,9 +30,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-white">
       <header className="sticky top-0 z-10 bg-white shadow-sm">
-        <div className="w-full bg-[#25D366] text-white py-2 px-4 text-center">
-          <p className="text-sm font-medium">{t('header.announcement')}</p>
-        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
@@ -475,7 +472,7 @@ export default function Home() {
                   </video>
                 </div>
                 <div className="p-4 bg-white text-center">
-                  <p className="text-[#25D366] font-medium">Kuafi.com'yi 45 saniyede keşfedin</p>
+                  <p className="text-[#25D366] font-medium">{t('pricing.videoTitle')}</p>
                 </div>
               </div>
             </motion.div>
@@ -486,9 +483,9 @@ export default function Home() {
         <section id="pricing" className="py-16 px-4 bg-gray-50 scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-8">
-              <span className="inline-block bg-red-100 text-red-800 text-xs font-medium px-3 py-1 rounded-full mb-3">⏳ Özel Teklif: %20 İndirim - Son Gün!</span>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Fiyatlandırma Planları</h2>
-              <p className="text-xl text-gray-600">İşletmenize en uygun planı seçin</p>
+              <span className="inline-block bg-red-100 text-red-800 text-xs font-medium px-3 py-1 rounded-full mb-3">{t('pricing.specialOffer')}</span>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('pricing.title')}</h2>
+              <p className="text-xl text-gray-600">{t('pricing.subtitle')}</p>
             </div>
             
             {/* Plan Comparison Table */}
@@ -496,39 +493,39 @@ export default function Home() {
               <table className="w-full text-sm text-left text-gray-700">
                 <thead className="text-xs uppercase bg-gray-100">
                   <tr>
-                    <th scope="col" className="px-6 py-3">Özellikler</th>
+                    <th scope="col" className="px-6 py-3">{t('pricing.comparison.features')}</th>
                     <th scope="col" className="px-6 py-3 text-center">Kuafi.com</th>
-                    <th scope="col" className="px-6 py-3 text-center">Rakip X</th>
-                    <th scope="col" className="px-6 py-3 text-center">Rakip Y</th>
+                    <th scope="col" className="px-6 py-3 text-center">{t('pricing.comparison.competitor1')}</th>
+                    <th scope="col" className="px-6 py-3 text-center">{t('pricing.comparison.competitor2')}</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white">
                   <tr className="border-b">
-                    <td className="px-6 py-4 font-medium">WhatsApp API</td>
+                    <td className="px-6 py-4 font-medium">{t('pricing.comparison.whatsappApi')}</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                   </tr>
                   <tr className="border-b">
-                    <td className="px-6 py-4 font-medium">Türkçe Dil Desteği</td>
+                    <td className="px-6 py-4 font-medium">{t('pricing.comparison.turkishSupport')}</td>
                     <td className="px-6 py-4 text-center">⭐⭐⭐⭐⭐</td>
                     <td className="px-6 py-4 text-center">⭐⭐⭐</td>
                     <td className="px-6 py-4 text-center">⭐⭐</td>
                   </tr>
                   <tr className="border-b">
-                    <td className="px-6 py-4 font-medium">Takvim Entegrasyonları</td>
+                    <td className="px-6 py-4 font-medium">{t('pricing.comparison.calendarIntegration')}</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
                   </tr>
                   <tr className="border-b">
-                    <td className="px-6 py-4 font-medium">7/24 Türkçe Destek</td>
+                    <td className="px-6 py-4 font-medium">{t('pricing.comparison.support247')}</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
                   </tr>
                   <tr>
-                    <td className="px-6 py-4 font-medium">Gelişmiş Admin Panel</td>
+                    <td className="px-6 py-4 font-medium">{t('pricing.comparison.adminPanel')}</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
                     <td className="px-6 py-4 text-center text-red-500">✗</td>
                     <td className="px-6 py-4 text-center text-[#25D366]">✓</td>
@@ -548,18 +545,18 @@ export default function Home() {
                 className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200 hover:border-[#25D366] transition-all"
               >
                 <div className="p-8">
-                  <h3 className="text-xl font-bold text-gray-800">🎉 Ücretsiz Plan</h3>
-                  <p className="text-gray-600 mt-2">Başlangıç için ideal</p>
+                  <h3 className="text-xl font-bold text-gray-800">{t('pricing.freePlan.title')}</h3>
+                  <p className="text-gray-600 mt-2">{t('pricing.freePlan.description')}</p>
                   
                   <div className="mt-6 mb-6">
-                    <span className="text-5xl font-bold text-gray-800">0₺</span>
-                    <span className="text-gray-600">/aylık</span>
+                    <span className="text-5xl font-bold text-gray-800">{t('pricing.freePlan.price')}</span>
+                    <span className="text-gray-600">{t('pricing.freePlan.period')}</span>
                   </div>
                   
                   <button 
                     className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg py-3 font-medium transition-all duration-300"
                   >
-                    Başla
+                    {t('pricing.freePlan.cta')}
                   </button>
                 </div>
                 
@@ -567,15 +564,15 @@ export default function Home() {
                   <ul className="space-y-4">
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>30 günlük deneme</span>
+                      <span>{t('pricing.freePlan.feature1')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>100 mesaj / ay</span>
+                      <span>{t('pricing.freePlan.feature2')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>Email desteği</span>
+                      <span>{t('pricing.freePlan.feature3')}</span>
                     </li>
                   </ul>
                 </div>
@@ -591,19 +588,19 @@ export default function Home() {
                 className="bg-white rounded-xl shadow-md overflow-hidden border-2 border-[#25D366] relative z-10 md:-mt-4 md:mb-4"
               >
                 <div className="bg-[#25D366] text-white py-2 text-center text-sm font-medium">
-                  ÖNERİLEN
+                  {t('pricing.standardPlan.badge')}
                 </div>
                 <div className="p-8 bg-gradient-to-br from-white to-[#f0f7f4]">
-                  <h3 className="text-xl font-bold text-gray-800">💼 Standart Plan</h3>
-                  <p className="text-gray-600 mt-2">Küçük ve orta işletmeler için</p>
+                  <h3 className="text-xl font-bold text-gray-800">{t('pricing.standardPlan.title')}</h3>
+                  <p className="text-gray-600 mt-2">{t('pricing.standardPlan.description')}</p>
                   
                   <div className="mt-6 mb-6">
                     <div className="flex items-center justify-center">
-                      <span className="text-lg font-bold text-gray-500 line-through mr-2">375₺</span>
-                      <span className="text-5xl font-bold text-gray-800">299₺</span>
-                      <span className="text-gray-600">/aylık</span>
+                      <span className="text-lg font-bold text-gray-500 line-through mr-2">{t('pricing.standardPlan.originalPrice')}</span>
+                      <span className="text-5xl font-bold text-gray-800">{t('pricing.standardPlan.price')}</span>
+                      <span className="text-gray-600">{t('pricing.standardPlan.period')}</span>
                     </div>
-                    <p className="text-center text-sm text-red-500 mt-1">%20 indirim - sınırlı süre!</p>
+                    <p className="text-center text-sm text-red-500 mt-1">{t('pricing.standardPlan.discount')}</p>
                   </div>
                   
                   <motion.button 
@@ -611,7 +608,7 @@ export default function Home() {
                     whileTap={{ scale: 0.95 }}
                     className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg py-3 font-medium transition-all duration-300"
                   >
-                    Hemen Başla
+                    {t('pricing.standardPlan.cta')}
                   </motion.button>
                 </div>
                 
@@ -619,26 +616,26 @@ export default function Home() {
                   <ul className="space-y-4">
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>Sınırsız mesaj</span>
+                      <span>{t('pricing.standardPlan.feature1')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>Özel takvim entegrasyonu</span>
+                      <span>{t('pricing.standardPlan.feature2')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>Marka özelleştirmeleri</span>
+                      <span>{t('pricing.standardPlan.feature3')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>WhatsApp desteği</span>
+                      <span>{t('pricing.standardPlan.feature4')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>Temel admin panel özellikleri</span>
+                      <span>{t('pricing.standardPlan.feature5')}</span>
                     </li>
                     <div className="mt-4 border-t border-gray-200 pt-4">
-                      <p className="text-gray-500 text-sm">WhatsApp mesaj maliyetleri ($0.0055/mesaj) sizin tarafınızdan karşılanır. Detaylı bilgi için <a href="#" className="text-[#25D366] hover:underline">tıklayın</a>.</p>
+                      <p className="text-gray-500 text-sm">{t('pricing.standardPlan.note')} <a href="#" className="text-[#25D366] hover:underline">{t('pricing.standardPlan.clickHere')}</a>.</p>
                     </div>
                   </ul>
                 </div>
@@ -654,16 +651,16 @@ export default function Home() {
                 className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-200 hover:border-[#25D366] transition-all"
               >
                 <div className="p-8">
-                  <h3 className="text-xl font-bold text-gray-800">👑 Premium Plan</h3>
-                  <p className="text-gray-600 mt-2">Büyük işletmeler ve zincirler için</p>
+                  <h3 className="text-xl font-bold text-gray-800">{t('pricing.premiumPlan.title')}</h3>
+                  <p className="text-gray-600 mt-2">{t('pricing.premiumPlan.description')}</p>
                   
                   <div className="mt-6 mb-6">
                     <div className="flex items-center justify-center">
-                      <span className="text-lg font-bold text-gray-500 line-through mr-2">749₺</span>
-                      <span className="text-5xl font-bold text-gray-800">599₺</span>
-                      <span className="text-gray-600">/aylık</span>
+                      <span className="text-lg font-bold text-gray-500 line-through mr-2">{t('pricing.premiumPlan.originalPrice')}</span>
+                      <span className="text-5xl font-bold text-gray-800">{t('pricing.premiumPlan.price')}</span>
+                      <span className="text-gray-600">{t('pricing.premiumPlan.period')}</span>
                     </div>
-                    <p className="text-center text-sm text-red-500 mt-1">%20 indirim - sınırlı süre!</p>
+                    <p className="text-center text-sm text-red-500 mt-1">{t('pricing.premiumPlan.discount')}</p>
                   </div>
                   
                   <motion.button 
@@ -671,7 +668,7 @@ export default function Home() {
                     whileTap={{ scale: 0.95 }}
                     className="w-full bg-gray-900 hover:bg-black text-white rounded-lg py-3 font-medium transition-all duration-300 flex items-center justify-center"
                   >
-                    <FaWhatsapp className="mr-2" /> İletişime Geç
+                    <FaWhatsapp className="mr-2" /> {t('pricing.premiumPlan.cta')}
                   </motion.button>
                 </div>
                 
@@ -679,30 +676,30 @@ export default function Home() {
                   <ul className="space-y-4">
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>Tüm özellikler +</span>
+                      <span>{t('pricing.premiumPlan.feature1')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>WhatsApp Business API kurulumu</span>
+                      <span>{t('pricing.premiumPlan.feature2')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>7/24 destek</span>
+                      <span>{t('pricing.premiumPlan.feature3')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span>Öncelikli destek</span>
+                      <span>{t('pricing.premiumPlan.feature4')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span className="font-medium">İlk 1000 mesaj bizden! (Değer: $50)</span>
+                      <span className="font-medium">{t('pricing.premiumPlan.feature5')}</span>
                     </li>
                     <li className="flex items-center text-gray-600">
                       <FaCheck className="text-[#25D366] mr-3 flex-shrink-0" />
-                      <span className="font-medium">Gelişmiş admin panel özellikleri</span>
+                      <span className="font-medium">{t('pricing.premiumPlan.feature6')}</span>
                     </li>
                     <div className="mt-4 border-t border-gray-200 pt-4">
-                      <p className="text-gray-500 text-sm">Premium pakette WhatsApp mesaj maliyetleri bizim tarafımızdan karşılanır.</p>
+                      <p className="text-gray-500 text-sm">{t('pricing.premiumPlan.note')}</p>
                     </div>
                   </ul>
                 </div>
@@ -710,16 +707,16 @@ export default function Home() {
             </div>
             
             <div className="mt-12 bg-white rounded-lg border p-4 shadow-sm">
-              <h4 className="text-lg font-semibold mb-2">WhatsApp Mesaj Ücretleri Hakkında</h4>
-              <p className="text-gray-600 mb-4">WhatsApp mesaj ücretleri sizden gizlenmez! WhatsApp Business API kullanımı için Meta tarafından her mesaj başına ücret alınmaktadır.</p>
+              <h4 className="text-lg font-semibold mb-2">{t('pricing.whatsappCosts.title')}</h4>
+              <p className="text-gray-600 mb-4">{t('pricing.whatsappCosts.description')}</p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-gray-50 p-3 rounded-lg">
-                  <p className="font-medium">Standart Pakette</p>
-                  <p className="text-sm text-gray-500">WhatsApp mesaj maliyetleri ($0.0055/mesaj) sizin tarafınızdan karşılanır.</p>
+                  <p className="font-medium">{t('pricing.whatsappCosts.standardTitle')}</p>
+                  <p className="text-sm text-gray-500">{t('pricing.whatsappCosts.standardNote')}</p>
                 </div>
                 <div className="bg-gray-50 p-3 rounded-lg">
-                  <p className="font-medium">Premium Pakette</p>
-                  <p className="text-sm text-gray-500">WhatsApp mesaj maliyetleri tarafımızdan karşılanır + ilk 1000 mesaj bizden!</p>
+                  <p className="font-medium">{t('pricing.whatsappCosts.premiumTitle')}</p>
+                  <p className="text-sm text-gray-500">{t('pricing.whatsappCosts.premiumNote')}</p>
                 </div>
               </div>
             </div>
@@ -765,10 +762,10 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="text-left">
                   <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                    Canlı Demo
+                    {t('demo.title')}
                   </h2>
                   <p className="text-xl text-gray-600 mb-8 max-w-3xl">
-                    Tek tıkla botla konuşmaya başlayın ve Kuafi.com'yi hemen deneyimleyin.
+                    {t('demo.subtitle')}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <motion.button 
@@ -776,14 +773,14 @@ export default function Home() {
                       whileTap={{ scale: 0.95 }}
                       className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium text-lg py-3 px-8 rounded-lg transition-colors inline-flex items-center"
                     >
-                      <FaWhatsapp className="mr-2" /> WhatsApp'tan Deneyin
+                      <FaWhatsapp className="mr-2" /> {t('demo.tryWhatsApp')}
                     </motion.button>
                     <motion.button 
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="bg-white border border-gray-300 hover:border-gray-400 text-gray-800 font-medium text-lg py-3 px-8 rounded-lg transition-colors"
                     >
-                      Demo Almak İstiyorum
+                      {t('demo.getDemo')}
                     </motion.button>
                   </div>
                 </div>
@@ -797,23 +794,23 @@ export default function Home() {
                           <FaWhatsapp className="text-white text-lg" />
                         </div>
                         <div className="ml-3">
-                          <h3 className="font-medium text-white text-sm">Kuafi Asistanı</h3>
-                          <p className="text-xs text-white/80">Çevrimiçi</p>
+                          <h3 className="font-medium text-white text-sm">{t('demo.assistant')}</h3>
+                          <p className="text-xs text-white/80">{t('demo.online')}</p>
                         </div>
                       </div>
                       
                       <div className="bg-[#ECE5DD] h-[calc(100%-4rem)] p-4 overflow-y-auto">
                         <div className="flex flex-col space-y-3">
                           <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                            <p className="text-sm text-gray-800">Merhaba! Ben Kuafi asistanı. Size nasıl yardımcı olabilirim?</p>
+                            <p className="text-sm text-gray-800">{t('demo.message1')}</p>
                             <p className="text-right text-xs text-gray-500 mt-1">10:30</p>
                           </div>
                           <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] ml-auto mb-3">
-                            <p className="text-sm text-gray-800">Merhaba, yarın için bir saç kesimi randevusu almak istiyorum</p>
+                            <p className="text-sm text-gray-800">{t('demo.turkishMessage1')}</p>
                             <p className="text-right text-xs text-gray-500 mt-1">10:31</p>
                           </div>
                           <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                            <p className="text-sm text-gray-800">Tabii! Yarın için uygun saatlerimiz: 10:00, 14:30 ve 16:00. Hangisi size uygun?</p>
+                            <p className="text-sm text-gray-800">{t('demo.turkishMessage2')}</p>
                             <p className="text-right text-xs text-gray-500 mt-1">10:31</p>
                           </div>
                         </div>
@@ -1052,8 +1049,8 @@ export default function Home() {
                     <FaUserCog className="h-6 w-6 text-[#25D366]" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">Rol Bazlı Erişim</p>
-                    <p className="text-sm text-gray-500">Yönetici, çalışan ve asistan rolleri</p>
+                    <p className="text-sm font-medium text-gray-900">{t('adminFeatures.multiUser.roleAccess')}</p>
+                    <p className="text-sm text-gray-500">{t('adminFeatures.multiUser.roles')}</p>
                   </div>
                 </div>
               </motion.div>
@@ -1194,11 +1191,11 @@ export default function Home() {
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#25D366] focus:border-[#25D366] outline-none"
                     >
                       <option value="">{t('contact.businessTypePlaceholder')}</option>
-                      <option value="kuafor">Kuaför / Güzellik Salonu</option>
-                      <option value="spa">SPA / Masaj Salonu</option>
-                      <option value="diyetisyen">Diyetisyen</option>
-                      <option value="doktor">Doktor / Klinik</option>
-                      <option value="diger">Diğer</option>
+                      <option value="kuafor">{t('contact.businessOption1')}</option>
+                      <option value="spa">{t('contact.businessOption2')}</option>
+                      <option value="diyetisyen">{t('contact.businessOption3')}</option>
+                      <option value="doktor">{t('contact.businessOption4')}</option>
+                      <option value="diger">{t('contact.businessOption5')}</option>
                     </select>
                   </div>
                   
