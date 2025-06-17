@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane, FaUserCog, FaChartLine } from "react-icons/fa";
+import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane, FaUserCog, FaChartLine, FaShieldAlt, FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   // Smooth scroll özelliğini aktifleştir
@@ -88,10 +88,10 @@ export default function Home() {
                 </span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
-                WhatsApp'tan <span className="text-[#25D366]">Otomatik Randevu</span> Alın. Kolay. Hızlı. Akıllı.
+                WhatsApp Üzerinden <span className="text-[#25D366]">7/24 Randevu Sistemi</span>
               </h2>
               <p className="text-xl text-gray-600 mb-6">
-                Berberler, güzellik merkezleri ve kuaförler için AI destekli randevu asistanı.
+                Kuaför ve güzellik salonları için yapay zeka destekli WhatsApp randevu asistanı. Müşterileriniz yazsın, asistanınız anında cevap versin.
               </p>
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
                 <div className="flex items-start">
@@ -110,11 +110,19 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center"
                 >
-                  <FaWhatsapp className="mr-2" /> Hemen WhatsApp'tan Deneyin
+                  <FaWhatsapp className="mr-2" /> Ücretsiz Deneyin
                 </motion.button>
-                <p className="text-sm text-gray-500 flex items-center mt-2 sm:mt-0">
-                  <FaCheck className="text-[#25D366] mr-2" /> 7 gün ücretsiz dene, kart gerekmez
-                </p>
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <p className="text-sm text-gray-500 flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> 7 gün ücretsiz deneme
+                  </p>
+                  <p className="text-sm text-gray-500 flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Kredi kartı gerekmez
+                  </p>
+                  <p className="text-sm text-gray-500 flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Meta onaylı iş ortağı
+                  </p>
+                </div>
               </div>
               <div className="mt-4 flex items-center space-x-4">
                 <div className="flex items-center">
@@ -179,8 +187,8 @@ export default function Home() {
         <section id="features" className="py-16 px-4 bg-white scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Sunduğumuz Faydalar</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Neden Kuafi.com?</p>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">Sizin İçin Kişiselleştirilmiş WhatsApp Asistanı</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Her güzellik salonu için ayrı kurulum, ayrı yapılandırma</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -193,14 +201,25 @@ export default function Home() {
                 className="bg-white p-8 rounded-xl shadow-sm"
               >
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
-                  <FaRobot className="text-[#25D366] text-2xl" />
+                  <FaCalendarCheck className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Zaman Kazandırır</h3>
-                <p className="text-gray-600">
-                  Randevularınızı artık telefona cevap vererek değil, otomatik olarak alın.
-                </p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Akıllı Randevu Yönetimi</h3>
+                <ul className="text-gray-600 space-y-2">
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Otomatik randevu planlama
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Randevu iptal/erteleme
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Boş zaman önerileri
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Hatırlatma mesajları
+                  </li>
+                </ul>
               </motion.div>
-              
+
               <motion.div 
                 whileHover={{ y: -10 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -210,14 +229,25 @@ export default function Home() {
                 className="bg-white p-8 rounded-xl shadow-sm"
               >
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
-                  <FaBell className="text-[#25D366] text-2xl" />
+                  <FaRobot className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">%100 Müşteri Memnuniyeti</h3>
-                <p className="text-gray-600">
-                  Anında yanıt alan müşteriler daha memnun kalır ve sadık müşteriye dönüşür.
-                </p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Yapay Zeka Asistanı</h3>
+                <ul className="text-gray-600 space-y-2">
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Doğal dil anlama
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Türkçe ve İngilizce desteği
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Akıllı öneriler
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> 7/24 hizmet
+                  </li>
+                </ul>
               </motion.div>
-              
+
               <motion.div 
                 whileHover={{ y: -10 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -227,63 +257,23 @@ export default function Home() {
                 className="bg-white p-8 rounded-xl shadow-sm"
               >
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
-                  <FaMobileAlt className="text-[#25D366] text-2xl" />
+                  <FaShieldAlt className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Takvim Uyumu</h3>
-                <p className="text-gray-600">
-                  Google Takvim ve diğer takvim uygulamalarıyla tam entegrasyon.
-                </p>
-              </motion.div>
-              
-              <motion.div 
-                whileHover={{ y: -10 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="bg-white p-8 rounded-xl shadow-sm"
-              >
-                <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
-                  <FaWhatsapp className="text-[#25D366] text-2xl" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Hiçbir Mesajı Kaçırmazsın</h3>
-                <p className="text-gray-600">
-                  7/24 çalışan asistanınız sayesinde potansiyel müşterileri kaybetmeyin.
-                </p>
-              </motion.div>
-              
-              <motion.div 
-                whileHover={{ y: -10 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="bg-white p-8 rounded-xl shadow-sm"
-              >
-                <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
-                  <FaMobileAlt className="text-[#25D366] text-2xl" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Her Yerden Kontrol</h3>
-                <p className="text-gray-600">
-                  Mobil, web, tablet - tüm cihazlardan randevularınızı yönetin.
-                </p>
-              </motion.div>
-              
-              <motion.div 
-                whileHover={{ y: -10 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="bg-white p-8 rounded-xl shadow-sm"
-              >
-                <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
-                  <FaCheck className="text-[#25D366] text-2xl" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">%100 Türkçe Destekli</h3>
-                <p className="text-gray-600">
-                  Tamamen Türkçe anlaşma yeteneğiyle doğal konuşma akışı sağlar.
-                </p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">Güvenlik ve Uyumluluk</h3>
+                <ul className="text-gray-600 space-y-2">
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Meta onaylı API
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> KVKK uyumlu
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> SSL güvenliği
+                  </li>
+                  <li className="flex items-center">
+                    <FaCheck className="text-[#25D366] mr-2" /> Veri yedekleme
+                  </li>
+                </ul>
               </motion.div>
             </div>
           </div>
@@ -1234,62 +1224,94 @@ export default function Home() {
 
             {/* Trusted By Logos */}
             <div>
-              <p className="text-center text-sm text-gray-500 mb-6">Referanslarımız</p>
+              <p className="text-center text-sm text-gray-500 mb-6"></p>
               <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-                <img src="/logo1.png" alt="Brand Logo" className="h-8 grayscale hover:grayscale-0 transition-all" />
-                <img src="/logo2.png" alt="Brand Logo" className="h-8 grayscale hover:grayscale-0 transition-all" />
-                <img src="/logo3.png" alt="Brand Logo" className="h-8 grayscale hover:grayscale-0 transition-all" />
-                <img src="/logo4.png" alt="Brand Logo" className="h-8 grayscale hover:grayscale-0 transition-all" />
-                <img src="/logo5.png" alt="Brand Logo" className="h-8 grayscale hover:grayscale-0 transition-all" />
-                <img src="/logo6.png" alt="Brand Logo" className="h-8 grayscale hover:grayscale-0 transition-all" />
+               
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="bg-gray-100 py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Kuafi<span className="text-[#25D366]">.com</span></h2>
-              <p className="text-gray-600">WhatsApp üzerinden çalışan randevu asistanınız</p>
+      {/* Footer */}
+      <footer className="bg-gray-50 py-12 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="col-span-1 md:col-span-2">
+              <h3 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h3>
+              <p className="mt-4 text-gray-600">
+                Kuaför ve güzellik salonları için yapay zeka destekli WhatsApp randevu asistanı.
+              </p>
+              <div className="mt-6 space-y-2">
+                <p className="text-gray-600 flex items-center">
+                  <FaEnvelope className="mr-2" /> kuafiapp@gmail.com
+                </p>
+                <p className="text-gray-600 flex items-center">
+                  <FaPhone className="mr-2" /> +90 505 007 98 55
+                </p>
+                
+              </div>
+              <div className="mt-6 flex space-x-4">
+                <a href="https://instagram.com/kuafiapp" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#25D366]">
+                  <FaInstagram className="text-2xl" />
+                </a>
+                <a href="https://facebook.com/kuafiapp" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#25D366]">
+                  <FaFacebook className="text-2xl" />
+                </a>
+                <a href="https://linkedin.com/company/kuafi" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#25D366]">
+                  <FaLinkedin className="text-2xl" />
+                </a>
+              </div>
             </div>
-            
-            <div className="flex space-x-4 mb-6 md:mb-0">
-              <a href="#" className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-300 transition-colors">
-                <span>F</span>
-              </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-300 transition-colors">
-                <span>I</span>
-              </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-300 transition-colors">
-                <span>L</span>
-              </a>
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">Ürün</h4>
+              <ul className="mt-4 space-y-4">
+                <li>
+                  <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-gray-900">
+                    Özellikler
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => scrollToSection('pricing')} className="text-gray-600 hover:text-gray-900">
+                    Fiyatlandırma
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => scrollToSection('admin-features')} className="text-gray-600 hover:text-gray-900">
+                    Admin Panel
+                  </button>
+                </li>
+              </ul>
             </div>
-            
-            <div className="flex flex-col items-center md:items-end">
-              <a href="mailto:info@kuafi.com" className="text-gray-600 hover:text-[#25D366] mb-2 transition-colors">
-                info@kuafi.com
-              </a>
-              <motion.a 
-                href="#" 
-                whileHover={{ scale: 1.05 }}
-                className="text-gray-600 hover:text-[#25D366] flex items-center transition-colors hover:scale-105"
-              >
-                <FaWhatsapp className="mr-2" /> WhatsApp Desteği
-              </motion.a>
+            <div>
+              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">Yasal</h4>
+              <ul className="mt-4 space-y-4">
+                <li>
+                  <a href="/privacy-policy" className="text-gray-600 hover:text-gray-900">
+                    Gizlilik Politikası
+                  </a>
+                </li>
+                <li>
+                  <a href="/terms" className="text-gray-600 hover:text-gray-900">
+                    Kullanım Koşulları
+                  </a>
+                </li>
+                <li>
+                  <a href="/kvkk" className="text-gray-600 hover:text-gray-900">
+                    KVKK Aydınlatma Metni
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-          
-          <div className="border-t border-gray-200 mt-8 pt-8">
-            <div className="flex justify-between items-center flex-wrap gap-4">
-              <p className="text-gray-500 text-sm">
-                © {new Date().getFullYear()} Kuafi.com. Tüm hakları saklıdır.
+          <div className="mt-8 border-t border-gray-200 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                &copy; {new Date().getFullYear()} Kuafi.com. Tüm hakları saklıdır.
               </p>
-              <div className="flex space-x-4 text-sm">
-                <a href="#" className="text-gray-500 hover:text-[#25D366] transition-colors">Gizlilik Politikası</a>
-                <a href="#" className="text-gray-500 hover:text-[#25D366] transition-colors">Kullanım Koşulları</a>
+              <div className="flex items-center space-x-2 mt-4 md:mt-0">
+                <img src="/meta-partner-badge.png" alt="Meta Business Partner" className="h-8" />
+                <img src="/ssl-secure-badge.png" alt="SSL Secured" className="h-8" />
               </div>
             </div>
           </div>

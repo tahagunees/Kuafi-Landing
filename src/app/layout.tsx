@@ -36,6 +36,15 @@ export const metadata: Metadata = {
       "tr-TR": "https://kuafi.com",
     },
   },
+  icons: {
+    icon: [
+      {
+        url: '/favicon.ico',
+        sizes: 'any',
+      },
+    ],
+    shortcut: ['/favicon.ico'],
+  },
 };
 
 export default function RootLayout({
