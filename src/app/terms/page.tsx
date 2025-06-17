@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaArrowLeft, FaShieldAlt, FaGavel, FaUserLock, FaCreditCard, FaExclamationTriangle } from "react-icons/fa";
+import { useLanguage } from "../contexts/LanguageContext";
+import LanguageToggle from "../components/LanguageToggle";
 
 export default function Terms() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-white">
       {/* Header */}
@@ -14,10 +18,11 @@ export default function Terms() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors mr-6">
                 <FaArrowLeft className="mr-2" />
-                Ana Sayfaya Dön
+                {t('terms.backToHome')}
               </Link>
               <h1 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
             </div>
+            <LanguageToggle />
           </div>
         </div>
       </header>
@@ -34,11 +39,11 @@ export default function Terms() {
               <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <FaGavel className="text-[#25D366] text-3xl" />
               </div>
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">Kullanım Koşulları</h1>
+              <h1 className="text-4xl font-bold text-gray-800 mb-4">{t('terms.title')}</h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Kuafi.com hizmetlerini kullanırken uymanız gereken kurallar ve şartlar.
+                {t('terms.subtitle')}
               </p>
-              <p className="text-sm text-gray-500 mt-4">Son güncelleme: 17 Haziran 2025</p>
+              <p className="text-sm text-gray-500 mt-4">{t('terms.lastUpdated')}</p>
             </div>
 
             {/* Content Sections */}
@@ -55,22 +60,21 @@ export default function Terms() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaShieldAlt className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">1. Genel Koşullar</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('terms.general.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <p className="text-gray-600">
-                    Bu kullanım koşulları, Kuafi.com hizmetlerini kullanırken uymanız gereken kuralları ve şartları belirler. 
-                    Hizmetlerimizi kullanarak bu koşulları kabul etmiş sayılırsınız.
+                    {t('terms.general.description')}
                   </p>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Hizmet Kapsamı</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('terms.general.scope')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>WhatsApp üzerinden randevu yönetimi</li>
-                      <li>Yapay zeka destekli müşteri iletişimi</li>
-                      <li>Takvim entegrasyonu</li>
-                      <li>İşletme yönetim araçları</li>
+                      <li>{t('terms.general.scopeItem1')}</li>
+                      <li>{t('terms.general.scopeItem2')}</li>
+                      <li>{t('terms.general.scopeItem3')}</li>
+                      <li>{t('terms.general.scopeItem4')}</li>
                     </ul>
                   </div>
                 </div>
@@ -88,24 +92,24 @@ export default function Terms() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaUserLock className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">2. Kullanıcı Sorumlulukları</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('terms.responsibilities.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Hesap Güvenliği</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('terms.responsibilities.account')}</h3>
                     <p className="text-gray-600">
-                      Hesap bilgilerinizin güvenliğinden siz sorumlusunuz. Şüpheli bir durum fark ederseniz hemen bizimle iletişime geçin.
+                      {t('terms.responsibilities.accountDescription')}
                     </p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Yasaklı Kullanımlar</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('terms.responsibilities.prohibited')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Spam veya istenmeyen mesaj gönderimi</li>
-                      <li>Yasadışı veya etik olmayan faaliyetler</li>
-                      <li>Sistemin kötüye kullanımı</li>
-                      <li>Başkalarının haklarını ihlal eden davranışlar</li>
+                      <li>{t('terms.responsibilities.prohibitedItem1')}</li>
+                      <li>{t('terms.responsibilities.prohibitedItem2')}</li>
+                      <li>{t('terms.responsibilities.prohibitedItem3')}</li>
+                      <li>{t('terms.responsibilities.prohibitedItem4')}</li>
                     </ul>
                   </div>
                 </div>
@@ -123,27 +127,27 @@ export default function Terms() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaCreditCard className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">3. Ödeme ve İptal Koşulları</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('terms.payment.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Ödeme Koşulları</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('terms.payment.conditions')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Aylık veya yıllık abonelik seçenekleri</li>
-                      <li>Otomatik yenileme özelliği</li>
-                      <li>Güvenli ödeme altyapısı</li>
-                      <li>KDV dahil fiyatlandırma</li>
+                      <li>{t('terms.payment.conditionsItem1')}</li>
+                      <li>{t('terms.payment.conditionsItem2')}</li>
+                      <li>{t('terms.payment.conditionsItem3')}</li>
+                      <li>{t('terms.payment.conditionsItem4')}</li>
                     </ul>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">İptal ve İade</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('terms.payment.cancellation')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>14 gün içinde iade hakkı</li>
-                      <li>İstediğiniz zaman iptal edebilme</li>
-                      <li>Kullanılmayan süre için iade</li>
-                      <li>İptal sonrası dönem sonu kadar kullanım</li>
+                      <li>{t('terms.payment.cancellationItem1')}</li>
+                      <li>{t('terms.payment.cancellationItem2')}</li>
+                      <li>{t('terms.payment.cancellationItem3')}</li>
+                      <li>{t('terms.payment.cancellationItem4')}</li>
                     </ul>
                   </div>
                 </div>
@@ -161,27 +165,25 @@ export default function Terms() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaExclamationTriangle className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">4. Sorumluluk Reddi</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('terms.liability.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <p className="text-gray-600">
-                    Kuafi.com, hizmetlerinin kesintisiz ve hatasız çalışacağını garanti etmez. Hizmet kaynaklı 
-                    oluşabilecek zararlardan, yasaların izin verdiği ölçüde sorumlu değildir.
+                    {t('terms.liability.description')}
                   </p>
                   
                   <div className="bg-blue-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Sınırlı Sorumluluk</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('terms.liability.limited')}</h3>
                     <p className="text-gray-600">
-                      Herhangi bir durumda Kuafi.com'un sorumluluğu, son 12 ayda ödediğiniz hizmet bedelini aşamaz.
+                      {t('terms.liability.limitedDescription')}
                     </p>
                   </div>
                   
                   <div className="bg-yellow-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Mücbir Sebepler</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('terms.liability.force')}</h3>
                     <p className="text-gray-600">
-                      Doğal afetler, savaş, terör, salgın hastalık gibi mücbir sebeplerden kaynaklanan kesinti ve 
-                      aksaklıklardan Kuafi.com sorumlu tutulamaz.
+                      {t('terms.liability.forceDescription')}
                     </p>
                   </div>
                 </div>
@@ -196,23 +198,15 @@ export default function Terms() {
                 className="bg-white p-8 rounded-xl shadow-sm"
               >
                 <div className="space-y-4">
+                  <h2 className="text-2xl font-bold text-gray-800">{t('terms.contact.title')}</h2>
                   <p className="text-gray-600">
-                    Bu kullanım koşulları hakkında sorularınız için bizimle iletişime geçebilirsiniz:
+                    {t('terms.contact.description')}
                   </p>
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <div className="space-y-3">
-                      <p className="text-gray-600">
-                        <strong>E-posta:</strong> legal@kuafi.com
-                      </p>
-                      <p className="text-gray-600">
-                        <strong>Adres:</strong> Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-4">
-                    Bu kullanım koşulları son olarak 17 Haziran 2025 tarihinde güncellenmiştir.
-                    Koşullarda yapılacak önemli değişiklikler hakkında sizi bilgilendireceğiz.
-                  </p>
+                  <ul className="list-disc list-inside text-gray-600 space-y-2">
+                    <li>{t('terms.contact.email')}</li>
+                    <li>{t('terms.contact.phone')}</li>
+                    <li>{t('terms.contact.address')}</li>
+                  </ul>
                 </div>
               </motion.section>
             </div>

@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaArrowLeft, FaShieldAlt, FaUserShield, FaCookie, FaDatabase, FaEnvelope, FaUserCog, FaPaperPlane } from "react-icons/fa";
+import { useLanguage } from "../contexts/LanguageContext";
+import LanguageToggle from "../components/LanguageToggle";
 
 export default function PrivacyPolicy() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-white">
       {/* Header */}
@@ -14,10 +18,11 @@ export default function PrivacyPolicy() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors mr-6">
                 <FaArrowLeft className="mr-2" />
-                Ana Sayfaya Dön
+                {t('privacyPolicy.backToHome')}
               </Link>
               <h1 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
             </div>
+            <LanguageToggle />
           </div>
         </div>
       </header>
@@ -34,11 +39,11 @@ export default function PrivacyPolicy() {
               <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <FaShieldAlt className="text-[#25D366] text-3xl" />
               </div>
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">Gizlilik Politikası</h1>
+              <h1 className="text-4xl font-bold text-gray-800 mb-4">{t('privacyPolicy.title')}</h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Kuafi.com olarak kişisel verilerinizin güvenliği bizim için önceliklidir. Bu politika, verilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.
+                {t('privacyPolicy.subtitle')}
               </p>
-              <p className="text-sm text-gray-500 mt-4">Son güncelleme: 17 Haziran 2025</p>
+              <p className="text-sm text-gray-500 mt-4">{t('privacyPolicy.lastUpdated')}</p>
             </div>
 
             {/* Content Sections */}
@@ -55,35 +60,35 @@ export default function PrivacyPolicy() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaDatabase className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">1. Topladığımız Bilgiler</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('privacyPolicy.dataCollection.title')}</h2>
                 </div>
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Kişisel Bilgiler</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('privacyPolicy.dataCollection.personal')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>kuafiapp@gmail.com</li>
-                      <li>+90 505 007 98 55</li>
+                      <li>{t('privacyPolicy.dataCollection.personalItem1')}</li>
+                      <li>{t('privacyPolicy.dataCollection.personalItem2')}</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Otomatik Toplanan Bilgiler</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('privacyPolicy.dataCollection.automatic')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>IP adresi ve cihaz bilgileri</li>
-                      <li>Tarayıcı türü ve sürümü</li>
-                      <li>Sayfa görüntüleme istatistikleri</li>
-                      <li>Hizmet kullanım verileri</li>
+                      <li>{t('privacyPolicy.dataCollection.automaticItem1')}</li>
+                      <li>{t('privacyPolicy.dataCollection.automaticItem2')}</li>
+                      <li>{t('privacyPolicy.dataCollection.automaticItem3')}</li>
+                      <li>{t('privacyPolicy.dataCollection.automaticItem4')}</li>
                     </ul>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">WhatsApp Mesaj Verileri</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('privacyPolicy.dataCollection.whatsapp')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Müşteri randevu talepleri</li>
-                      <li>Mesaj içerikleri (sadece randevu işlemleri için)</li>
-                      <li>Mesaj zamanlamaları</li>
-                      <li>Randevu durumu bilgileri</li>
+                      <li>{t('privacyPolicy.dataCollection.whatsappItem1')}</li>
+                      <li>{t('privacyPolicy.dataCollection.whatsappItem2')}</li>
+                      <li>{t('privacyPolicy.dataCollection.whatsappItem3')}</li>
+                      <li>{t('privacyPolicy.dataCollection.whatsappItem4')}</li>
                     </ul>
                   </div>
                 </div>
@@ -101,35 +106,35 @@ export default function PrivacyPolicy() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaUserShield className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">2. Verileri Nasıl Kullanırız</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('privacyPolicy.dataUsage.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Hizmet Sağlama</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('privacyPolicy.dataUsage.service')}</h3>
                     <p className="text-gray-600">
-                      Randevu asistanı hizmetimizi sağlamak, randevuları yönetmek ve müşterilerinizle iletişim kurmak için verilerinizi kullanırız.
+                      {t('privacyPolicy.dataUsage.serviceDescription')}
                     </p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Hizmet İyileştirme</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('privacyPolicy.dataUsage.improvement')}</h3>
                     <p className="text-gray-600">
-                      Hizmetlerimizi geliştirmek, yeni özellikler eklemek ve kullanıcı deneyimini artırmak için anonim kullanım verilerini analiz ederiz.
+                      {t('privacyPolicy.dataUsage.improvementDescription')}
                     </p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">İletişim</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('privacyPolicy.dataUsage.communication')}</h3>
                     <p className="text-gray-600">
-                      Önemli hizmet güncellemeleri, güvenlik bildirimleri ve destek hizmetleri için sizinle iletişim kurarız.
+                      {t('privacyPolicy.dataUsage.communicationDescription')}
                     </p>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Yasal Yükümlülükler</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('privacyPolicy.dataUsage.legal')}</h3>
                     <p className="text-gray-600">
-                      Yasal gereklilikleri karşılamak, dolandırıcılığı önlemek ve güvenliği sağlamak için gerekli durumlarda verilerinizi kullanabiliriz.
+                      {t('privacyPolicy.dataUsage.legalDescription')}
                     </p>
                   </div>
                 </div>
@@ -147,24 +152,24 @@ export default function PrivacyPolicy() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaEnvelope className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">3. Veri Paylaşımı</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('privacyPolicy.dataSharing.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="border-l-4 border-[#25D366] pl-4">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Temel İlkemiz</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('privacyPolicy.dataSharing.principle')}</h3>
                     <p className="text-gray-600">
-                      Kişisel verilerinizi <strong>asla</strong> üçüncü taraflarla pazarlama amaçlı paylaşmayız, satmayız veya kiralamayız.
+                      {t('privacyPolicy.dataSharing.principleDescription')}
                     </p>
                   </div>
                   
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Sınırlı Paylaşım Durumları</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('privacyPolicy.dataSharing.limited')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li><strong>Hizmet Sağlayıcılar:</strong> WhatsApp API, bulut depolama ve analitik hizmetleri</li>
-                      <li><strong>Yasal Gereklilikler:</strong> Mahkeme kararı veya yasal zorunluluk durumunda</li>
-                      <li><strong>Güvenlik:</strong> Dolandırıcılık veya güvenlik tehditleri durumunda</li>
-                      <li><strong>İş Devri:</strong> Şirket satışı veya birleşme durumunda (önceden bildirimle)</li>
+                      <li>{t('privacyPolicy.dataSharing.limitedItem1')}</li>
+                      <li>{t('privacyPolicy.dataSharing.limitedItem2')}</li>
+                      <li>{t('privacyPolicy.dataSharing.limitedItem3')}</li>
+                      <li>{t('privacyPolicy.dataSharing.limitedItem4')}</li>
                     </ul>
                   </div>
                 </div>
@@ -182,37 +187,36 @@ export default function PrivacyPolicy() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaCookie className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">4. Çerezler ve Takip Teknolojileri</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('privacyPolicy.cookies.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Kullandığımız Çerezler</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('privacyPolicy.cookies.types')}</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="bg-gray-50 p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-800 mb-2">Gerekli Çerezler</h4>
-                        <p className="text-sm text-gray-600">Web sitesinin temel işlevlerini sağlar</p>
+                        <h4 className="font-semibold text-gray-800 mb-2">{t('privacyPolicy.cookies.necessary')}</h4>
+                        <p className="text-sm text-gray-600">{t('privacyPolicy.cookies.necessaryDescription')}</p>
                       </div>
                       <div className="bg-gray-50 p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-800 mb-2">Analitik Çerezler</h4>
-                        <p className="text-sm text-gray-600">Site kullanımını anlamamıza yardımcı olur</p>
+                        <h4 className="font-semibold text-gray-800 mb-2">{t('privacyPolicy.cookies.analytics')}</h4>
+                        <p className="text-sm text-gray-600">{t('privacyPolicy.cookies.analyticsDescription')}</p>
                       </div>
                       <div className="bg-gray-50 p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-800 mb-2">Fonksiyonel Çerezler</h4>
-                        <p className="text-sm text-gray-600">Tercihlerinizi hatırlar</p>
+                        <h4 className="font-semibold text-gray-800 mb-2">{t('privacyPolicy.cookies.functional')}</h4>
+                        <p className="text-sm text-gray-600">{t('privacyPolicy.cookies.functionalDescription')}</p>
                       </div>
                       <div className="bg-gray-50 p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-800 mb-2">Performans Çerezler</h4>
-                        <p className="text-sm text-gray-600">Site performansını optimize eder</p>
+                        <h4 className="font-semibold text-gray-800 mb-2">{t('privacyPolicy.cookies.marketing')}</h4>
+                        <p className="text-sm text-gray-600">{t('privacyPolicy.cookies.marketingDescription')}</p>
                       </div>
                     </div>
                   </div>
                   
                   <div className="bg-blue-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Çerez Kontrolü</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('privacyPolicy.cookies.control')}</h3>
                     <p className="text-gray-600">
-                      Tarayıcı ayarlarınızdan çerezleri kontrol edebilir, silebilir veya devre dışı bırakabilirsiniz. 
-                      Ancak bu durumda bazı site özellikleri düzgün çalışmayabilir.
+                      {t('privacyPolicy.cookies.controlDescription')}
                     </p>
                   </div>
                 </div>
@@ -228,35 +232,33 @@ export default function PrivacyPolicy() {
               >
                 <div className="flex items-center mb-6">
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
-                    <FaShieldAlt className="text-[#25D366] text-xl" />
+                    <FaUserCog className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">5. Veri Güvenliği</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('privacyPolicy.dataSecurity.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Güvenlik Önlemleri</h3>
-                    <p className="text-gray-600">
-                      Verilerinizi korumak için endüstri standardı güvenlik önlemleri kullanıyoruz:
-                    </p>
-                    <ul className="list-disc list-inside text-gray-600 mt-2 space-y-2">
-                      <li>SSL/TLS şifreleme</li>
-                      <li>Güvenli veri depolama</li>
-                      <li>Düzenli güvenlik denetimleri</li>
-                      <li>Erişim kontrolü ve yetkilendirme</li>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('privacyPolicy.dataSecurity.measures')}</h3>
+                    <ul className="list-disc list-inside text-gray-600 space-y-2">
+                      <li>{t('privacyPolicy.dataSecurity.measuresItem1')}</li>
+                      <li>{t('privacyPolicy.dataSecurity.measuresItem2')}</li>
+                      <li>{t('privacyPolicy.dataSecurity.measuresItem3')}</li>
+                      <li>{t('privacyPolicy.dataSecurity.measuresItem4')}</li>
+                      <li>{t('privacyPolicy.dataSecurity.measuresItem5')}</li>
                     </ul>
                   </div>
                   
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Veri Saklama</h3>
+                  <div className="bg-red-50 p-4 rounded-lg">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('privacyPolicy.dataSecurity.breach')}</h3>
                     <p className="text-gray-600">
-                      Verilerinizi yalnızca gerekli olduğu sürece saklarız. Hesabınızı sildiğinizde, verileriniz 30 gün içinde tamamen silinir.
+                      {t('privacyPolicy.dataSecurity.breachDescription')}
                     </p>
                   </div>
                 </div>
               </motion.section>
 
-              {/* Kullanıcı Hakları */}
+              {/* Haklarınız */}
               <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -266,32 +268,25 @@ export default function PrivacyPolicy() {
               >
                 <div className="flex items-center mb-6">
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
-                    <FaUserCog className="text-[#25D366] text-xl" />
+                    <FaPaperPlane className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">6. Kullanıcı Hakları</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('privacyPolicy.rights.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
-                  <p className="text-gray-600">
-                    KVKK kapsamında aşağıdaki haklara sahipsiniz:
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">Erişim Hakkı</h4>
-                      <p className="text-sm text-gray-600">Verilerinize erişim ve kopya talep etme hakkı</p>
-                    </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">Düzeltme Hakkı</h4>
-                      <p className="text-sm text-gray-600">Yanlış verilerin düzeltilmesini talep etme hakkı</p>
-                    </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">Silme Hakkı</h4>
-                      <p className="text-sm text-gray-600">Verilerinizin silinmesini talep etme hakkı</p>
-                    </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">İtiraz Hakkı</h4>
-                      <p className="text-sm text-gray-600">Veri işlemeye itiraz etme hakkı</p>
-                    </div>
+                  <ul className="list-disc list-inside text-gray-600 space-y-2">
+                    <li>{t('privacyPolicy.rights.item1')}</li>
+                    <li>{t('privacyPolicy.rights.item2')}</li>
+                    <li>{t('privacyPolicy.rights.item3')}</li>
+                    <li>{t('privacyPolicy.rights.item4')}</li>
+                    <li>{t('privacyPolicy.rights.item5')}</li>
+                    <li>{t('privacyPolicy.rights.item6')}</li>
+                  </ul>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <p className="text-gray-600">
+                      {t('privacyPolicy.rights.exercise')}
+                    </p>
                   </div>
                 </div>
               </motion.section>
@@ -304,34 +299,16 @@ export default function PrivacyPolicy() {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 className="bg-white p-8 rounded-xl shadow-sm"
               >
-                <div className="flex items-center mb-6">
-                  <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
-                    <FaPaperPlane className="text-[#25D366] text-xl" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-800">7. İletişim</h2>
-                </div>
-                
                 <div className="space-y-4">
+                  <h2 className="text-2xl font-bold text-gray-800">{t('privacyPolicy.contact.title')}</h2>
                   <p className="text-gray-600">
-                    Gizlilik politikamız hakkında sorularınız veya talepleriniz için bizimle iletişime geçebilirsiniz:
+                    {t('privacyPolicy.contact.description')}
                   </p>
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <div className="space-y-3">
-                      <p className="text-gray-600">
-                        <strong>E-posta:</strong> privacy@kuafi.com
-                      </p>
-                      <p className="text-gray-600">
-                        <strong>Adres:</strong> [Şirket Adresi]
-                      </p>
-                      <p className="text-gray-600">
-                        <strong>Telefon:</strong> [Telefon Numarası]
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-4">
-                    Bu gizlilik politikası son olarak 17 Haziran 2025 tarihinde güncellenmiştir.
-                    Politikada yapılacak önemli değişiklikler hakkında sizi bilgilendireceğiz.
-                  </p>
+                  <ul className="list-disc list-inside text-gray-600 space-y-2">
+                    <li>{t('privacyPolicy.contact.email')}</li>
+                    <li>{t('privacyPolicy.contact.phone')}</li>
+                    <li>{t('privacyPolicy.contact.address')}</li>
+                  </ul>
                 </div>
               </motion.section>
             </div>

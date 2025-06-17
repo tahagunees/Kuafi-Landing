@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaArrowLeft, FaShieldAlt, FaUserShield, FaDatabase, FaGlobe, FaLock } from "react-icons/fa";
+import { useLanguage } from "../contexts/LanguageContext";
+import LanguageToggle from "../components/LanguageToggle";
 
 export default function KVKK() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-white">
       {/* Header */}
@@ -14,10 +18,11 @@ export default function KVKK() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors mr-6">
                 <FaArrowLeft className="mr-2" />
-                Ana Sayfaya Dön
+                {t('kvkk.backToHome')}
               </Link>
               <h1 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
             </div>
+            <LanguageToggle />
           </div>
         </div>
       </header>
@@ -34,11 +39,11 @@ export default function KVKK() {
               <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <FaShieldAlt className="text-[#25D366] text-3xl" />
               </div>
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">KVKK Aydınlatma Metni</h1>
+              <h1 className="text-4xl font-bold text-gray-800 mb-4">{t('kvkk.title')}</h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                6698 Sayılı Kişisel Verilerin Korunması Kanunu Kapsamında Aydınlatma Metni
+                {t('kvkk.subtitle')}
               </p>
-              <p className="text-sm text-gray-500 mt-4">Son güncelleme: 17 Haziran 2025</p>
+              <p className="text-sm text-gray-500 mt-4">{t('kvkk.lastUpdated')}</p>
             </div>
 
             {/* Content Sections */}
@@ -55,22 +60,21 @@ export default function KVKK() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaUserShield className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">1. Veri Sorumlusu</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('kvkk.dataController.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <p className="text-gray-600">
-                    6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verileriniz; 
-                    veri sorumlusu olarak Kuafi Teknoloji A.Ş. tarafından aşağıda açıklanan kapsamda işlenebilecektir.
+                    {t('kvkk.dataController.description')}
                   </p>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Veri Sorumlusu Bilgileri</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.dataController.info')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Şirket: Kuafi Teknoloji A.Ş.</li>
-                      <li>Adres: Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul</li>
-                      <li>E-posta: kvkk@kuafi.com</li>
-                      <li>Tel: +90 (555) 123 4567</li>
+                      <li>{t('kvkk.dataController.company')}</li>
+                      <li>{t('kvkk.dataController.address')}</li>
+                      <li>{t('kvkk.dataController.email')}</li>
+                      <li>{t('kvkk.dataController.phone')}</li>
                     </ul>
                   </div>
                 </div>
@@ -88,34 +92,34 @@ export default function KVKK() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaDatabase className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">2. İşlenen Kişisel Veriler</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('kvkk.personalData.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Kimlik Bilgileri</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.personalData.identity')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Ad ve soyad</li>
-                      <li>T.C. Kimlik numarası (gerekli durumlarda)</li>
-                      <li>Doğum tarihi</li>
+                      <li>{t('kvkk.personalData.identityItem1')}</li>
+                      <li>{t('kvkk.personalData.identityItem2')}</li>
+                      <li>{t('kvkk.personalData.identityItem3')}</li>
                     </ul>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">İletişim Bilgileri</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.personalData.contact')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Telefon numarası</li>
-                      <li>E-posta adresi</li>
-                      <li>İşletme adresi</li>
+                      <li>{t('kvkk.personalData.contactItem1')}</li>
+                      <li>{t('kvkk.personalData.contactItem2')}</li>
+                      <li>{t('kvkk.personalData.contactItem3')}</li>
                     </ul>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">İşlem Bilgileri</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.personalData.transaction')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Randevu bilgileri</li>
-                      <li>Hizmet kullanım verileri</li>
-                      <li>Ödeme bilgileri</li>
+                      <li>{t('kvkk.personalData.transactionItem1')}</li>
+                      <li>{t('kvkk.personalData.transactionItem2')}</li>
+                      <li>{t('kvkk.personalData.transactionItem3')}</li>
                     </ul>
                   </div>
                 </div>
@@ -133,26 +137,26 @@ export default function KVKK() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaGlobe className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">3. Kişisel Verilerin İşlenme Amaçları</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('kvkk.processingPurposes.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Temel Amaçlar</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.processingPurposes.primary')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Randevu yönetim hizmetinin sağlanması</li>
-                      <li>Müşteri ilişkilerinin yönetimi</li>
-                      <li>Hizmet kalitesinin iyileştirilmesi</li>
-                      <li>Yasal yükümlülüklerin yerine getirilmesi</li>
+                      <li>{t('kvkk.processingPurposes.primaryItem1')}</li>
+                      <li>{t('kvkk.processingPurposes.primaryItem2')}</li>
+                      <li>{t('kvkk.processingPurposes.primaryItem3')}</li>
+                      <li>{t('kvkk.processingPurposes.primaryItem4')}</li>
                     </ul>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">İkincil Amaçlar</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.processingPurposes.secondary')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Hizmet geliştirme ve iyileştirme</li>
-                      <li>İstatistiksel analizler</li>
-                      <li>Bilgilendirme ve pazarlama (izin dahilinde)</li>
+                      <li>{t('kvkk.processingPurposes.secondaryItem1')}</li>
+                      <li>{t('kvkk.processingPurposes.secondaryItem2')}</li>
+                      <li>{t('kvkk.processingPurposes.secondaryItem3')}</li>
                     </ul>
                   </div>
                 </div>
@@ -170,32 +174,32 @@ export default function KVKK() {
                   <div className="bg-[#e1f5e9] h-12 w-12 rounded-lg flex items-center justify-center mr-4">
                     <FaLock className="text-[#25D366] text-xl" />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-800">4. Veri Güvenliği ve Haklarınız</h2>
+                  <h2 className="text-2xl font-bold text-gray-800">{t('kvkk.dataSecurity.title')}</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">Güvenlik Önlemleri</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.dataSecurity.security')}</h3>
                     <p className="text-gray-600">
-                      Kişisel verilerinizin güvenliğini sağlamak için teknik ve idari tüm tedbirleri alıyoruz:
+                      {t('kvkk.dataSecurity.securityDescription')}
                     </p>
                     <ul className="list-disc list-inside text-gray-600 mt-2 space-y-2">
-                      <li>SSL/TLS şifreleme</li>
-                      <li>Güvenlik duvarları</li>
-                      <li>Erişim kontrolleri</li>
-                      <li>Düzenli güvenlik testleri</li>
+                      <li>{t('kvkk.dataSecurity.securityItem1')}</li>
+                      <li>{t('kvkk.dataSecurity.securityItem2')}</li>
+                      <li>{t('kvkk.dataSecurity.securityItem3')}</li>
+                      <li>{t('kvkk.dataSecurity.securityItem4')}</li>
                     </ul>
                   </div>
                   
                   <div className="bg-gray-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">KVKK Kapsamındaki Haklarınız</h3>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.dataSecurity.rights')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
-                      <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
-                      <li>Kişisel verileriniz işlenmişse buna ilişkin bilgi talep etme</li>
-                      <li>Kişisel verilerinizin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme</li>
-                      <li>Yurt içinde veya yurt dışında kişisel verilerinizin aktarıldığı üçüncü kişileri bilme</li>
-                      <li>Kişisel verilerinizin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme</li>
-                      <li>KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde kişisel verilerinizin silinmesini isteme</li>
+                      <li>{t('kvkk.dataSecurity.rightsItem1')}</li>
+                      <li>{t('kvkk.dataSecurity.rightsItem2')}</li>
+                      <li>{t('kvkk.dataSecurity.rightsItem3')}</li>
+                      <li>{t('kvkk.dataSecurity.rightsItem4')}</li>
+                      <li>{t('kvkk.dataSecurity.rightsItem5')}</li>
+                      <li>{t('kvkk.dataSecurity.rightsItem6')}</li>
                     </ul>
                   </div>
                 </div>
@@ -210,26 +214,15 @@ export default function KVKK() {
                 className="bg-white p-8 rounded-xl shadow-sm"
               >
                 <div className="space-y-4">
+                  <h2 className="text-2xl font-bold text-gray-800">{t('kvkk.contact.title')}</h2>
                   <p className="text-gray-600">
-                    KVKK kapsamındaki haklarınızı kullanmak için bizimle iletişime geçebilirsiniz:
+                    {t('kvkk.contact.description')}
                   </p>
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <div className="space-y-3">
-                      <p className="text-gray-600">
-                        <strong>E-posta:</strong> kvkk@kuafi.com
-                      </p>
-                      <p className="text-gray-600">
-                        <strong>Adres:</strong> Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul
-                      </p>
-                      <p className="text-gray-600">
-                        <strong>Telefon:</strong> +90 (555) 123 4567
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-4">
-                    Bu aydınlatma metni son olarak 17 Haziran 2025 tarihinde güncellenmiştir.
-                    Metinde yapılacak önemli değişiklikler hakkında sizi bilgilendireceğiz.
-                  </p>
+                  <ul className="list-disc list-inside text-gray-600 space-y-2">
+                    <li>{t('kvkk.contact.email')}</li>
+                    <li>{t('kvkk.contact.phone')}</li>
+                    <li>{t('kvkk.contact.address')}</li>
+                  </ul>
                 </div>
               </motion.section>
             </div>

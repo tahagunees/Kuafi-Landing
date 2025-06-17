@@ -3,8 +3,12 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane, FaUserCog, FaChartLine, FaShieldAlt, FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { useLanguage } from "./contexts/LanguageContext";
+import LanguageToggle from "./components/LanguageToggle";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   // Smooth scroll özelliğini aktifleştir
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -27,7 +31,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-white">
       <header className="sticky top-0 z-10 bg-white shadow-sm">
         <div className="w-full bg-[#25D366] text-white py-2 px-4 text-center">
-          <p className="text-sm font-medium">📢 7 GÜN ÜCRETSİZ DENEYİN - Kredi kartı gerekmez! | <span className="underline">Özel lansman indirimi: %20 tasarruf</span></p>
+          <p className="text-sm font-medium">{t('header.announcement')}</p>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -39,30 +43,33 @@ export default function Home() {
                 onClick={() => scrollToSection('features')}
                 className="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-100"
               >
-                Özellikler
+                {t('nav.features')}
               </button>
               <button
                 onClick={() => scrollToSection('how-it-works')}
                 className="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-100"
               >
-                Nasıl Çalışır?
+                {t('nav.howItWorks')}
               </button>
               <button
                 onClick={() => scrollToSection('pricing')}
                 className="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-100"
               >
-                Fiyatlandırma
+                {t('nav.pricing')}
               </button>
               <button
                 onClick={() => scrollToSection('admin-features')}
                 className="px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-100"
               >
-                Admin Panel
+                {t('nav.adminPanel')}
               </button>
             </nav>
-            <button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-md font-medium transition-colors">
-              7 Gün Ücretsiz Dene
-            </button>
+            <div className="flex items-center space-x-3">
+              <LanguageToggle />
+              <button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-md font-medium transition-colors">
+                {t('nav.tryFree')}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -77,50 +84,50 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <div className="mb-4 flex items-center">
-                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">Yeni</span>
+                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full mr-2">{t('hero.badge.new')}</span>
                 <span className="inline-flex items-center text-sm text-gray-500">
                   <span className="flex -space-x-1 mr-2">
                     <img className="w-6 h-6 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=1" alt="User" />
                     <img className="w-6 h-6 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=2" alt="User" />
                     <img className="w-6 h-6 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=3" alt="User" />
                   </span>
-                  500+ berber tarafından tercih ediliyor
+                  {t('hero.badge.trustedBy')}
                 </span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
-                WhatsApp Üzerinden <span className="text-[#25D366]">7/24 Randevu Sistemi</span>
+                {t('hero.title')} <span className="text-[#25D366]">{t('hero.titleHighlight')}</span>
               </h2>
               <p className="text-xl text-gray-600 mb-6">
-                Kuaför ve güzellik salonları için yapay zeka destekli WhatsApp randevu asistanı. Müşterileriniz yazsın, asistanınız anında cevap versin.
+                {t('hero.subtitle')}
               </p>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <img className="h-10 w-10 rounded-full" src="https://i.pravatar.cc/100?img=4" alt="Testimonial" />
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm text-gray-700">"3 aydır kullanıyorum, randevularım %40 arttı ve asla bir randevuyu kaçırmıyorum!"</p>
-                    <p className="mt-1 text-sm font-medium text-gray-900">- Ahmet Kuaför, İstanbul</p>
+                              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <img className="h-10 w-10 rounded-full" src="https://i.pravatar.cc/100?img=4" alt="Testimonial" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-gray-700">{t('hero.testimonial')}</p>
+                      <p className="mt-1 text-sm font-medium text-gray-900">{t('hero.testimonialAuthor')}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center"
                 >
-                  <FaWhatsapp className="mr-2" /> Ücretsiz Deneyin
+                  <FaWhatsapp className="mr-2" /> {t('hero.cta')}
                 </motion.button>
                 <div className="flex flex-col sm:flex-row items-center gap-4">
                   <p className="text-sm text-gray-500 flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> 7 gün ücretsiz deneme
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('hero.benefit1')}
                   </p>
                   <p className="text-sm text-gray-500 flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Kredi kartı gerekmez
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('hero.benefit2')}
                   </p>
                   <p className="text-sm text-gray-500 flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Meta onaylı iş ortağı
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('hero.benefit3')}
                   </p>
                 </div>
               </div>
@@ -159,21 +166,21 @@ export default function Home() {
                       <FaWhatsapp className="text-white text-lg" />
                     </div>
                     <div className="ml-3">
-                      <h3 className="font-medium text-white text-sm">Kuafi Asistanı</h3>
-                      <p className="text-xs text-white/80">Çevrimiçi</p>
+                      <h3 className="font-medium text-white text-sm">{t('demo.assistant')}</h3>
+                      <p className="text-xs text-white/80">{t('demo.online')}</p>
                     </div>
                   </div>
                   <div className="bg-[#ECE5DD] h-full p-4">
                     <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                      <p className="text-sm text-gray-800">Merhaba! Ben Kuafi asistanı. Size nasıl yardımcı olabilirim?</p>
+                      <p className="text-sm text-gray-800">{t('demo.message1')}</p>
                       <p className="text-right text-xs text-gray-500 mt-1">10:30</p>
                     </div>
                     <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] ml-auto mb-3">
-                      <p className="text-sm text-gray-800">Merhaba, yarın için bir saç kesimi randevusu almak istiyorum</p>
+                      <p className="text-sm text-gray-800">{t('demo.message2')}</p>
                       <p className="text-right text-xs text-gray-500 mt-1">10:31</p>
                     </div>
                     <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                      <p className="text-sm text-gray-800">Tabii! Yarın için uygun saatlerimiz: 10:00, 14:30 ve 16:00. Hangisi size uygun?</p>
+                      <p className="text-sm text-gray-800">{t('demo.message3')}</p>
                       <p className="text-right text-xs text-gray-500 mt-1">10:31</p>
                     </div>
                   </div>
@@ -187,8 +194,8 @@ export default function Home() {
         <section id="features" className="py-16 px-4 bg-white scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Sizin İçin Kişiselleştirilmiş WhatsApp Asistanı</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Her güzellik salonu için ayrı kurulum, ayrı yapılandırma</p>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('features.title')}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('features.subtitle')}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -203,19 +210,19 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
                   <FaCalendarCheck className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Akıllı Randevu Yönetimi</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('features.smartAppointment.title')}</h3>
                 <ul className="text-gray-600 space-y-2">
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Otomatik randevu planlama
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.smartAppointment.feature1')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Randevu iptal/erteleme
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.smartAppointment.feature2')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Boş zaman önerileri
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.smartAppointment.feature3')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Hatırlatma mesajları
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.smartAppointment.feature4')}
                   </li>
                 </ul>
               </motion.div>
@@ -231,19 +238,19 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
                   <FaRobot className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Yapay Zeka Asistanı</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('features.aiAssistant.title')}</h3>
                 <ul className="text-gray-600 space-y-2">
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Doğal dil anlama
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.aiAssistant.feature1')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Türkçe ve İngilizce desteği
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.aiAssistant.feature2')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Akıllı öneriler
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.aiAssistant.feature3')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> 7/24 hizmet
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.aiAssistant.feature4')}
                   </li>
                 </ul>
               </motion.div>
@@ -259,19 +266,19 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
                   <FaShieldAlt className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Güvenlik ve Uyumluluk</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('features.security.title')}</h3>
                 <ul className="text-gray-600 space-y-2">
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Meta onaylı API
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.security.feature1')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> KVKK uyumlu
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.security.feature2')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> SSL güvenliği
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.security.feature3')}
                   </li>
                   <li className="flex items-center">
-                    <FaCheck className="text-[#25D366] mr-2" /> Veri yedekleme
+                    <FaCheck className="text-[#25D366] mr-2" /> {t('features.security.feature4')}
                   </li>
                 </ul>
               </motion.div>
@@ -283,8 +290,8 @@ export default function Home() {
         <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Başarı Metrikleri</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">Kuafi.com kullanan işletmelerin gerçek sonuçları</p>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('metrics.title')}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('metrics.subtitle')}</p>
             </div>
             
             <div className="grid md:grid-cols-4 gap-6">
@@ -297,9 +304,9 @@ export default function Home() {
                 className="bg-white p-8 rounded-xl shadow-sm text-center"
               >
                 <div className="text-5xl font-bold text-[#25D366] mb-4">%67</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Randevu Doluluk Artışı</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('metrics.bookingIncrease.title')}</h3>
                 <p className="text-gray-600">
-                  Boş randevu saatleri azalır, iş hacminiz artar
+                  {t('metrics.bookingIncrease.description')}
                 </p>
               </motion.div>
               
@@ -312,9 +319,9 @@ export default function Home() {
                 className="bg-white p-8 rounded-xl shadow-sm text-center"
               >
                 <div className="text-5xl font-bold text-[#25D366] mb-4">%90</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Telefonda Zaman Kazancı</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('metrics.timeSaving.title')}</h3>
                 <p className="text-gray-600">
-                  Telefon aramalarını cevaplayarak kaybedilen süre azalır
+                  {t('metrics.timeSaving.description')}
                 </p>
               </motion.div>
               
@@ -327,9 +334,9 @@ export default function Home() {
                 className="bg-white p-8 rounded-xl shadow-sm text-center"
               >
                 <div className="text-5xl font-bold text-[#25D366] mb-4">%42</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Yeni Müşteri Artışı</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('metrics.newCustomers.title')}</h3>
                 <p className="text-gray-600">
-                  7/24 randevu alınabilmesi yeni müşteri kazanımını artırır
+                  {t('metrics.newCustomers.description')}
                 </p>
               </motion.div>
               
@@ -342,9 +349,9 @@ export default function Home() {
                 className="bg-white p-8 rounded-xl shadow-sm text-center"
               >
                 <div className="text-5xl font-bold text-[#25D366] mb-4">%78</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">İptal Oranı Azalışı</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('metrics.cancellationReduction.title')}</h3>
                 <p className="text-gray-600">
-                  Otomatik hatırlatmalar sayesinde daha az randevu iptali
+                  {t('metrics.cancellationReduction.description')}
                 </p>
               </motion.div>
             </div>
@@ -358,10 +365,10 @@ export default function Home() {
                 </div>
                 <div className="md:w-3/4 md:pl-8">
                   <p className="text-xl italic text-gray-700 mb-4">
-                    "Kuafi.com ile çalışmaya başladıktan sonra telefonda geçirdiğim vakit %90 azaldı ve randevu doluluk oranim %67 arttı. Artık müşterilerime daha kaliteli hizmet verebiliyorum."
+                    {t('metrics.testimonial')}
                   </p>
-                  <p className="font-bold text-gray-800">Ahmet Kuaför</p>
-                  <p className="text-gray-500">İstanbul, Kadıköy</p>
+                  <p className="font-bold text-gray-800">{t('metrics.testimonialAuthor')}</p>
+                  <p className="text-gray-500">{t('metrics.testimonialLocation')}</p>
                 </div>
               </div>
             </div>
@@ -372,8 +379,8 @@ export default function Home() {
         <section id="how-it-works" className="py-16 px-4 scroll-mt-20 bg-gray-50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Nasıl Çalışır?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">3 Adımda Basit</p>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('howItWorks.title')}</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('howItWorks.subtitle')}</p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -388,9 +395,9 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
                   <FaWhatsapp className="text-[#25D366] text-3xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Müşteri Yazıyor</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('howItWorks.step1.title')}</h3>
                 <p className="text-gray-600">
-                  Müşterileriniz WhatsApp üzerinden size kolayca ulaşır.
+                  {t('howItWorks.step1.description')}
                 </p>
               </motion.div>
               
@@ -405,9 +412,9 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
                   <FaRobot className="text-[#25D366] text-3xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Bot Cevaplıyor</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('howItWorks.step2.title')}</h3>
                 <p className="text-gray-600">
-                  AI destekli asistan randevuları otomatik oluşturur.
+                  {t('howItWorks.step2.description')}
                 </p>
               </motion.div>
               
@@ -422,9 +429,9 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
                   <FaBell className="text-[#25D366] text-3xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Takvime İşleniyor</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('howItWorks.step3.title')}</h3>
                 <p className="text-gray-600">
-                  Randevu otomatik olarak takviminize eklenir.
+                  {t('howItWorks.step3.description')}
                 </p>
               </motion.div>
             </div>
@@ -729,17 +736,17 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
-                İşletmenize <span className="text-[#25D366]">WhatsApp Asistanı</span> Eklemek İçin Hazır mısınız?
+                {t('finalCta.title')}
               </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Daha az iş, daha çok randevu. Müşterilerinize 7/24 yanıt veren asistanınız ile işinizi büyütün.
+                {t('finalCta.subtitle')}
               </p>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#25D366] hover:bg-[#128C7E] text-white font-medium text-lg py-3 px-8 rounded-lg transition-colors inline-flex items-center"
               >
-                <FaWhatsapp className="mr-2" /> 7 Gün Ücretsiz Deneyin
+                <FaWhatsapp className="mr-2" /> {t('finalCta.cta')}
               </motion.button>
             </motion.div>
           </div>
@@ -823,8 +830,8 @@ export default function Home() {
         <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Sık Sorulan Sorular</h2>
-              <p className="text-xl text-gray-600">Merak ettiğiniz soruların cevapları</p>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('faq.title')}</h2>
+              <p className="text-xl text-gray-600">{t('faq.subtitle')}</p>
             </div>
             
             <div className="space-y-6">
@@ -835,8 +842,8 @@ export default function Home() {
                 transition={{ duration: 0.4 }}
                 className="bg-white p-6 rounded-xl shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">WhatsApp API zor mu kurulur?</h3>
-                <p className="text-gray-600">Hayır, Kuafi ile WhatsApp API kurulumu tamamen bizim tarafımızdan yapılır. Premium paketimizde WhatsApp Business API kurulumu ve entegrasyonu dahildir.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{t('faq.q1.question')}</h3>
+                <p className="text-gray-600">{t('faq.q1.answer')}</p>
               </motion.div>
               
               <motion.div
@@ -846,8 +853,8 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: 0.1 }}
                 className="bg-white p-6 rounded-xl shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Deneme süresi ne kadar?</h3>
-                <p className="text-gray-600">Tüm özelliklerimizi 7 gün boyunca ücretsiz deneyebilirsiniz. Deneme süresinde herhangi bir kredi kartı bilgisi istenmez.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{t('faq.q2.question')}</h3>
+                <p className="text-gray-600">{t('faq.q2.answer')}</p>
               </motion.div>
               
               <motion.div
@@ -857,8 +864,8 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: 0.2 }}
                 className="bg-white p-6 rounded-xl shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Bot Türkçe mi?</h3>
-                <p className="text-gray-600">Evet, botumuz %100 Türkçe destekli olup, Türkçe dil anlama ve işleme yeteneklerine sahiptir.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{t('faq.q3.question')}</h3>
+                <p className="text-gray-600">{t('faq.q3.answer')}</p>
               </motion.div>
               
               <motion.div
@@ -868,8 +875,8 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="bg-white p-6 rounded-xl shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Takvim neye entegre oluyor?</h3>
-                <p className="text-gray-600">Şu anda Google Takvim, Microsoft Outlook ve Apple Takvim entegrasyonlarını destekliyoruz. Ayrıca özel takvim sistemlerinize de entegrasyon sağlayabiliyoruz.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{t('faq.q4.question')}</h3>
+                <p className="text-gray-600">{t('faq.q4.answer')}</p>
               </motion.div>
               
               <motion.div
@@ -879,8 +886,8 @@ export default function Home() {
                 transition={{ duration: 0.4, delay: 0.4 }}
                 className="bg-white p-6 rounded-xl shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Eski randevularım ne oluyor?</h3>
-                <p className="text-gray-600">Mevcut takvim sisteminizdeki tüm randevular korunur. Kuafi, mevcut randevularınıza saygı gösterecek şekilde çalışır.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{t('faq.q5.question')}</h3>
+                <p className="text-gray-600">{t('faq.q5.answer')}</p>
               </motion.div>
             </div>
           </div>
@@ -890,10 +897,10 @@ export default function Home() {
         <section id="admin-features" className="py-16 px-4 bg-white scroll-mt-20">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">YENİ</span>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Gelişmiş Yönetim Paneli</h2>
+              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">{t('adminFeatures.badge')}</span>
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('adminFeatures.title')}</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                İşletmenizi tek noktadan yönetebileceğiniz güçlü admin paneliyle tanışın
+                {t('adminFeatures.subtitle')}
               </p>
             </div>
             
@@ -909,9 +916,9 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
                   <FaCalendarCheck className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Randevu Yönetimi</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('adminFeatures.appointmentManagement.title')}</h3>
                 <p className="text-gray-600">
-                  Tüm randevularınızı görüntüleyin, düzenleyin ve iptal edin. Boş saatleri ve yoğun günleri kolayca takip edin.
+                  {t('adminFeatures.appointmentManagement.description')}
                 </p>
               </motion.div>
               
@@ -926,9 +933,9 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
                   <FaUserCog className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Müşteri Veritabanı</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('adminFeatures.customerDatabase.title')}</h3>
                 <p className="text-gray-600">
-                  Müşteri bilgilerinizi tek bir yerden yönetin. Randevu geçmişi, tercihler ve iletişim bilgilerini kolayca erişin.
+                  {t('adminFeatures.customerDatabase.description')}
                 </p>
               </motion.div>
               
@@ -943,9 +950,9 @@ export default function Home() {
                 <div className="bg-[#e1f5e9] h-16 w-16 rounded-lg flex items-center justify-center mb-6">
                   <FaChartLine className="text-[#25D366] text-2xl" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Analitik ve Raporlar</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('adminFeatures.analytics.title')}</h3>
                 <p className="text-gray-600">
-                  İşletmenizin performansını ölçün. Doluluk oranları, iptal istatistikleri ve gelir raporlarına erişin.
+                  {t('adminFeatures.analytics.description')}
                 </p>
               </motion.div>
             </div>
@@ -963,9 +970,9 @@ export default function Home() {
               </div>
               
               <div className="md:w-1/2 space-y-6">
-                <h3 className="text-2xl font-bold text-gray-800">Özelleştirilebilir Kontrol Paneli</h3>
+                <h3 className="text-2xl font-bold text-gray-800">{t('adminFeatures.customizable.title')}</h3>
                 <p className="text-gray-600">
-                  Yönetim panelinizi ihtiyaçlarınıza göre özelleştirin. Sizin için önemli olan metrikleri ön plana çıkarın.
+                  {t('adminFeatures.customizable.description')}
                 </p>
                 
                 <ul className="space-y-3">
@@ -973,31 +980,31 @@ export default function Home() {
                     <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
                       <FaCheck className="h-3 w-3 text-[#25D366]" />
                     </div>
-                    <p className="ml-3 text-gray-600">Günlük, haftalık ve aylık randevu görünümleri</p>
+                    <p className="ml-3 text-gray-600">{t('adminFeatures.customizable.feature1')}</p>
                   </li>
                   <li className="flex items-start">
                     <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
                       <FaCheck className="h-3 w-3 text-[#25D366]" />
                     </div>
-                    <p className="ml-3 text-gray-600">WhatsApp mesajlaşma geçmişi ve istatistikleri</p>
+                    <p className="ml-3 text-gray-600">{t('adminFeatures.customizable.feature2')}</p>
                   </li>
                   <li className="flex items-start">
                     <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
                       <FaCheck className="h-3 w-3 text-[#25D366]" />
                     </div>
-                    <p className="ml-3 text-gray-600">Özelleştirilebilir otomatik mesaj şablonları</p>
+                    <p className="ml-3 text-gray-600">{t('adminFeatures.customizable.feature3')}</p>
                   </li>
                   <li className="flex items-start">
                     <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#e1f5e9] flex items-center justify-center mt-0.5">
                       <FaCheck className="h-3 w-3 text-[#25D366]" />
                     </div>
-                    <p className="ml-3 text-gray-600">Detaylı finansal raporlar ve tahminler</p>
+                    <p className="ml-3 text-gray-600">{t('adminFeatures.customizable.feature4')}</p>
                   </li>
                 </ul>
                 
                 <div className="pt-6">
                   <button className="px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg font-medium transition-colors flex items-center">
-                    <span>Daha Fazla Bilgi</span>
+                    <span>{t('adminFeatures.customizable.cta')}</span>
                     <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -1014,17 +1021,17 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 className="bg-gray-50 p-8 rounded-xl shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Mobil Erişim</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">{t('adminFeatures.mobile.title')}</h3>
                 <p className="text-gray-600 mb-6">
-                  Admin panelinize dilediğiniz yerden, dilediğiniz cihazdan erişin. Tamamen mobil uyumlu arayüz sayesinde yolda bile işletmenizi yönetin.
+                  {t('adminFeatures.mobile.description')}
                 </p>
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0 h-12 w-12 rounded-full bg-[#e1f5e9] flex items-center justify-center">
                     <FaMobileAlt className="h-6 w-6 text-[#25D366]" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-900">%100 Mobil Uyumlu</p>
-                    <p className="text-sm text-gray-500">Tüm cihazlarda mükemmel deneyim</p>
+                    <p className="text-sm font-medium text-gray-900">{t('adminFeatures.mobile.badge')}</p>
+                    <p className="text-sm text-gray-500">{t('adminFeatures.mobile.subtitle')}</p>
                   </div>
                 </div>
               </motion.div>
@@ -1036,9 +1043,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="bg-gray-50 p-8 rounded-xl shadow-sm"
               >
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Çoklu Kullanıcı Desteği</h3>
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">{t('adminFeatures.multiUser.title')}</h3>
                 <p className="text-gray-600 mb-6">
-                  Ekibinizin farklı üyelerine özel izinler tanımlayın. Kimin neyi görebileceğini ve düzenleyebileceğini siz belirleyin.
+                  {t('adminFeatures.multiUser.description')}
                 </p>
                 <div className="flex items-center space-x-4">
                   <div className="flex-shrink-0 h-12 w-12 rounded-full bg-[#e1f5e9] flex items-center justify-center">
@@ -1059,20 +1066,20 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full mb-3">
-                Hemen İletişime Geç
+                {t('contact.quickContact')}
               </span>
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Hızlı İletişim ve Referanslar
+                {t('contact.title')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Türkiye'nin önde gelen 500+ işletmesi Kuafi.com ile randevu sistemlerini otomatikleştiriyor
+                {t('contact.subtitle')}
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
               <div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  Kullanıcılarımız Ne Diyor?
+                  {t('contact.testimonialsTitle')}
                 </h3>
 
                 {/* Testimonial Carousel */}
@@ -1084,8 +1091,8 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-800">Ahmet Kuaför</h4>
-                      <p className="text-gray-500 text-sm">İstanbul, Kadıköy</p>
+                      <h4 className="font-bold text-gray-800">{t('contact.testimonial1Author')}</h4>
+                      <p className="text-gray-500 text-sm">{t('contact.testimonial1Location')}</p>
                       <div className="flex text-yellow-400 mt-1">
                         <FaStar />
                         <FaStar />
@@ -1097,10 +1104,10 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="italic text-gray-700 mb-3">
-                    "Kuafi.com'yi kullanmaya başladıktan sonra boş randevu saatlerim %80 azaldı. Artık telefonla uğraşmak yerine müşterilerime odaklanabiliyorum."
+                    {t('contact.testimonial1')}
                   </p>
                   <p className="text-gray-600 text-sm">
-                    <FaCalendarCheck className="inline-block mr-1 text-[#25D366]" /> 4 aydır kullanıyor
+                    <FaCalendarCheck className="inline-block mr-1 text-[#25D366]" /> {t('contact.testimonial1Duration')}
                   </p>
                 </div>
 
@@ -1112,8 +1119,8 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-800">Deniz Güzellik</h4>
-                      <p className="text-gray-500 text-sm">Ankara, Çankaya</p>
+                      <h4 className="font-bold text-gray-800">{t('contact.testimonial2Author')}</h4>
+                      <p className="text-gray-500 text-sm">{t('contact.testimonial2Location')}</p>
                       <div className="flex text-yellow-400 mt-1">
                         <FaStar />
                         <FaStar />
@@ -1125,33 +1132,33 @@ export default function Home() {
                     </div>
                   </div>
                   <p className="italic text-gray-700 mb-3">
-                    "Müşterilerimiz WhatsApp üzerinden 7/24 randevu alabildiği için çok memnunlar. Özellikle hatırlatma mesajları iptal oranlarını ciddi şekilde azalttı."
+                    {t('contact.testimonial2')}
                   </p>
                   <p className="text-gray-600 text-sm">
-                    <FaCalendarCheck className="inline-block mr-1 text-[#25D366]" /> 6 aydır kullanıyor
+                    <FaCalendarCheck className="inline-block mr-1 text-[#25D366]" /> {t('contact.testimonial2Duration')}
                   </p>
                 </div>
               </div>
 
               <div className="bg-gray-50 rounded-xl p-8 border border-gray-200 shadow-sm">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">Bizimle İletişime Geçin</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('contact.formTitle')}</h3>
                 
                 <form className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      İsim Soyisim
+                      {t('contact.nameLabel')}
                     </label>
                     <input
                       type="text"
                       id="name"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#25D366] focus:border-[#25D366] outline-none"
-                      placeholder="Adınız Soyadınız"
+                      placeholder={t('contact.namePlaceholder')}
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      Telefon Numarası
+                      {t('contact.phoneLabel')}
                     </label>
                     <div className="relative">
                       <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
@@ -1161,32 +1168,32 @@ export default function Home() {
                         type="tel"
                         id="phone"
                         className="w-full pl-10 px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#25D366] focus:border-[#25D366] outline-none"
-                        placeholder="+90 5XX XXX XX XX"
+                        placeholder={t('contact.phonePlaceholder')}
                       />
                     </div>
                   </div>
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      E-posta
+                      {t('contact.emailLabel')}
                     </label>
                     <input
                       type="email"
                       id="email"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#25D366] focus:border-[#25D366] outline-none"
-                      placeholder="ornek@domain.com"
+                      placeholder={t('contact.emailPlaceholder')}
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="business" className="block text-sm font-medium text-gray-700 mb-1">
-                      İşletme Türü
+                      {t('contact.businessTypeLabel')}
                     </label>
                     <select
                       id="business"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#25D366] focus:border-[#25D366] outline-none"
                     >
-                      <option value="">Seçiniz</option>
+                      <option value="">{t('contact.businessTypePlaceholder')}</option>
                       <option value="kuafor">Kuaför / Güzellik Salonu</option>
                       <option value="spa">SPA / Masaj Salonu</option>
                       <option value="diyetisyen">Diyetisyen</option>
@@ -1197,13 +1204,13 @@ export default function Home() {
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Mesaj
+                      {t('contact.messageLabel')}
                     </label>
                     <textarea
                       id="message"
                       rows={3}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#25D366] focus:border-[#25D366] outline-none"
-                      placeholder="Sorularınız veya detaylar..."
+                      placeholder={t('contact.messagePlaceholder')}
                     ></textarea>
                   </div>
                   
@@ -1212,11 +1219,11 @@ export default function Home() {
                     whileTap={{ scale: 0.98 }}
                     className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white rounded-lg py-3 font-medium transition-all duration-300 flex items-center justify-center"
                   >
-                    <FaPaperPlane className="mr-2" /> Mesaj Gönder
+                    <FaPaperPlane className="mr-2" /> {t('contact.submitButton')}
                   </motion.button>
 
                   <p className="text-xs text-gray-500 text-center mt-2">
-                    Bilgileriniz KVKK kapsamında korunmaktadır. <a href="#" className="text-[#25D366] hover:underline">Gizlilik Politikamız</a>
+                    {t('contact.privacyNote')} <a href="#" className="text-[#25D366] hover:underline">{t('contact.privacyLink')}</a>
                   </p>
                 </form>
               </div>
@@ -1240,7 +1247,7 @@ export default function Home() {
             <div className="col-span-1 md:col-span-2">
               <h3 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h3>
               <p className="mt-4 text-gray-600">
-                Kuaför ve güzellik salonları için yapay zeka destekli WhatsApp randevu asistanı.
+                {t('footer.description')}
               </p>
               <div className="mt-6 space-y-2">
                 <p className="text-gray-600 flex items-center">
@@ -1264,41 +1271,41 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">Ürün</h4>
+              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">{t('footer.product')}</h4>
               <ul className="mt-4 space-y-4">
                 <li>
                   <button onClick={() => scrollToSection('features')} className="text-gray-600 hover:text-gray-900">
-                    Özellikler
+                    {t('footer.features')}
                   </button>
                 </li>
                 <li>
                   <button onClick={() => scrollToSection('pricing')} className="text-gray-600 hover:text-gray-900">
-                    Fiyatlandırma
+                    {t('footer.pricing')}
                   </button>
                 </li>
                 <li>
                   <button onClick={() => scrollToSection('admin-features')} className="text-gray-600 hover:text-gray-900">
-                    Admin Panel
+                    {t('footer.adminPanel')}
                   </button>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">Yasal</h4>
+              <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">{t('footer.legal')}</h4>
               <ul className="mt-4 space-y-4">
                 <li>
                   <a href="/privacy-policy" className="text-gray-600 hover:text-gray-900">
-                    Gizlilik Politikası
+                    {t('footer.privacyPolicy')}
                   </a>
                 </li>
                 <li>
                   <a href="/terms" className="text-gray-600 hover:text-gray-900">
-                    Kullanım Koşulları
+                    {t('footer.termsOfService')}
                   </a>
                 </li>
                 <li>
                   <a href="/kvkk" className="text-gray-600 hover:text-gray-900">
-                    KVKK Aydınlatma Metni
+                    {t('footer.kvkkText')}
                   </a>
                 </li>
               </ul>
@@ -1307,7 +1314,7 @@ export default function Home() {
           <div className="mt-8 border-t border-gray-200 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400 text-sm">
-                &copy; {new Date().getFullYear()} Kuafi.com. Tüm hakları saklıdır.
+                {t('footer.copyright')}
               </p>
               <div className="flex items-center space-x-2 mt-4 md:mt-0">
                 <img src="/meta-partner-badge.png" alt="Meta Business Partner" className="h-8" />
