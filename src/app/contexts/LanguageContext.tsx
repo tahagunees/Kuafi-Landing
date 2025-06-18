@@ -660,7 +660,7 @@ const translations = {
     'kvkk.dataController.description': 'In accordance with the Personal Data Protection Law No. 6698 ("KVKK"), your personal data may be processed by Kuafi Technology Inc. as the data controller within the scope described below.',
     'kvkk.dataController.info': 'Data Controller Information',
     'kvkk.dataController.company': 'Company: Kuafi Technology Inc.',
-    'kvkk.dataController.address': 'Address: Maslak, Büyükdere Cad. No:123, Sarıyer/Istanbul',
+    
     'kvkk.dataController.email': 'Email: kvkk@kuafi.com',
     'kvkk.dataController.phone': 'Phone: +90 (555) 123 4567',
     'kvkk.personalData.title': '2. Processed Personal Data',
