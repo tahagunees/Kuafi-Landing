@@ -79,7 +79,7 @@ export default function KVKK() {
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('kvkk.dataController.info')}</h3>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
                       <li>{t('kvkk.dataController.company')}</li>
-                      <li>{t('kvkk.dataController.address')}</li>
+                     
                       <li>{t('kvkk.dataController.email')}</li>
                       <li>{t('kvkk.dataController.phone')}</li>
                     </ul>
