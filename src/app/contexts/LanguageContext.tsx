@@ -8,6 +8,7 @@ interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: (key: string) => string
+  isTransitioning: boolean
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
@@ -24,7 +25,7 @@ const translations = {
     
     // Hero Section
     'hero.badge.new': 'Yeni',
-    'hero.badge.trustedBy': '500+ berber tarafından tercih ediliyor',
+    'hero.badge.trustedBy': '500+ işletme tarafından tercih ediliyor',
     'hero.title': 'WhatsApp Üzerinden',
     'hero.titleHighlight': '7/24 Randevu Sistemi',
     'hero.subtitle': 'Kuaför ve güzellik salonları için yapay zeka destekli WhatsApp randevu asistanı. Müşterileriniz yazsın, asistanınız anında cevap versin.',
@@ -145,7 +146,7 @@ const translations = {
     'contact.testimonial2Location': 'Ankara, Çankaya',
     'contact.testimonial2Duration': '6 aydır kullanıyor',
     'contact.formTitle': 'Bizimle İletişime Geçin',
-    'contact.nameLabel': 'İsim Soyisim',
+    'contact.nameLabel': 'İsim Soyisim', 
     'contact.namePlaceholder': 'Adınız Soyadınız',
     'contact.phoneLabel': 'Telefon Numarası',
     'contact.phonePlaceholder': '+90 5XX XXX XX XX',
@@ -191,10 +192,10 @@ const translations = {
     'pricing.standardPlan.badge': 'ÖNERİLEN',
     'pricing.standardPlan.title': '💼 Standart Plan',
     'pricing.standardPlan.description': 'Küçük ve orta işletmeler için',
-    'pricing.standardPlan.originalPrice': '375₺',
-    'pricing.standardPlan.price': '299₺',
+    'pricing.standardPlan.originalPrice': '8000₺',
+    'pricing.standardPlan.price': '5999₺',
     'pricing.standardPlan.period': '/aylık',
-    'pricing.standardPlan.discount': '%20 indirim - sınırlı süre!',
+    'pricing.standardPlan.discount': ' sınırlı süre!',
     'pricing.standardPlan.cta': 'Hemen Başla',
     'pricing.standardPlan.feature1': 'Sınırsız mesaj',
     'pricing.standardPlan.feature2': 'Özel takvim entegrasyonu',
@@ -206,10 +207,10 @@ const translations = {
     
     'pricing.premiumPlan.title': '👑 Premium Plan',
     'pricing.premiumPlan.description': 'Büyük işletmeler ve zincirler için',
-    'pricing.premiumPlan.originalPrice': '749₺',
-    'pricing.premiumPlan.price': '599₺',
+    'pricing.premiumPlan.originalPrice': '10000₺',
+    'pricing.premiumPlan.price': '7999₺',
     'pricing.premiumPlan.period': '/aylık',
-    'pricing.premiumPlan.discount': '%20 indirim - sınırlı süre!',
+    'pricing.premiumPlan.discount': ' sınırlı süre!',
     'pricing.premiumPlan.cta': 'İletişime Geç',
     'pricing.premiumPlan.feature1': 'Tüm özellikler +',
     'pricing.premiumPlan.feature2': 'WhatsApp Business API kurulumu',
@@ -246,6 +247,175 @@ const translations = {
     'footer.kvkkText': 'KVKK Aydınlatma Metni',
     'footer.copyright': '© 2025 Kuafi.com. Tüm hakları saklıdır.',
     'footer.metaBadge': 'Meta Business Partner',
+
+    // KVKK - Turkish translations
+    'kvkk.backToHome': 'Ana Sayfaya Dön',
+    'kvkk.title': 'KVKK Aydınlatma Metni',
+    'kvkk.subtitle': '6698 Sayılı Kişisel Verilerin Korunması Kanunu kapsamında Aydınlatma Metni',
+    'kvkk.lastUpdated': 'Son güncelleme: 17 Haziran 2025',
+    'kvkk.dataController.title': '1. Veri Sorumlusu',
+    'kvkk.dataController.description': '6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verileriniz Kuafi Teknoloji A.Ş. tarafından veri sorumlusu sıfatıyla aşağıda açıklanan kapsamda işlenebilmektedir.',
+    'kvkk.dataController.info': 'Veri Sorumlusu Bilgileri',
+    'kvkk.dataController.company': 'Şirket: Kuafi Teknoloji A.Ş.',
+    'kvkk.dataController.address': 'Adres: Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul',
+    'kvkk.dataController.email': 'E-posta: kvkk@kuafi.com',
+    'kvkk.dataController.phone': 'Telefon: +90 (555) 123 4567',
+    'kvkk.personalData.title': '2. İşlenen Kişisel Veriler',
+    'kvkk.personalData.identity': 'Kimlik Bilgileri',
+    'kvkk.personalData.identityItem1': 'Ad ve soyad',
+    'kvkk.personalData.identityItem2': 'T.C. kimlik numarası (gerekli olduğunda)',
+    'kvkk.personalData.identityItem3': 'Doğum tarihi',
+    'kvkk.personalData.contact': 'İletişim Bilgileri',
+    'kvkk.personalData.contactItem1': 'Telefon numarası',
+    'kvkk.personalData.contactItem2': 'E-posta adresi',
+    'kvkk.personalData.contactItem3': 'İş yeri adresi',
+    'kvkk.personalData.transaction': 'İşlem Bilgileri',
+    'kvkk.personalData.transactionItem1': 'Randevu bilgileri',
+    'kvkk.personalData.transactionItem2': 'Hizmet kullanım verileri',
+    'kvkk.personalData.transactionItem3': 'Ödeme bilgileri',
+    'kvkk.processingPurposes.title': '3. Kişisel Veri İşleme Amaçları',
+    'kvkk.processingPurposes.primary': 'Temel Amaçlar',
+    'kvkk.processingPurposes.primaryItem1': 'Randevu yönetim hizmetinin sunulması',
+    'kvkk.processingPurposes.primaryItem2': 'Müşteri ilişkilerinin yönetimi',
+    'kvkk.processingPurposes.primaryItem3': 'Hizmet kalitesinin artırılması',
+    'kvkk.processingPurposes.primaryItem4': 'Yasal yükümlülüklerin yerine getirilmesi',
+    'kvkk.processingPurposes.secondary': 'İkincil Amaçlar',
+    'kvkk.processingPurposes.secondaryItem1': 'Hizmet geliştirme ve iyileştirme',
+    'kvkk.processingPurposes.secondaryItem2': 'İstatistiksel analiz',
+    'kvkk.processingPurposes.secondaryItem3': 'Bilgilendirme ve pazarlama (izin dahilinde)',
+    'kvkk.dataSecurity.title': '4. Veri Güvenliği ve Haklarınız',
+    'kvkk.dataSecurity.security': 'Güvenlik Önlemleri',
+    'kvkk.dataSecurity.securityDescription': 'Kişisel verilerinizin güvenliğini sağlamak için tüm teknik ve idari tedbirleri alıyoruz:',
+    'kvkk.dataSecurity.securityItem1': 'SSL/TLS şifreleme',
+    'kvkk.dataSecurity.securityItem2': 'Güvenlik duvarları',
+    'kvkk.dataSecurity.securityItem3': 'Erişim kontrolleri',
+    'kvkk.dataSecurity.securityItem4': 'Düzenli güvenlik testleri',
+    'kvkk.dataSecurity.rights': 'KVKK Kapsamındaki Haklarınız',
+    'kvkk.dataSecurity.rightsItem1': 'Kişisel verilerinizin işlenip işlenmediğini öğrenme',
+    'kvkk.dataSecurity.rightsItem2': 'Kişisel verileriniz işlenmişse buna ilişkin bilgi talep etme',
+    'kvkk.dataSecurity.rightsItem3': 'Kişisel verilerinizin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme',
+    'kvkk.dataSecurity.rightsItem4': 'Yurt içinde veya yurt dışında kişisel verilerinizin aktarıldığı üçüncü kişileri bilme',
+    'kvkk.dataSecurity.rightsItem5': 'Kişisel verilerinizin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme',
+    'kvkk.dataSecurity.rightsItem6': 'KVKK\'nın 7. maddesinde öngörülen şartlar çerçevesinde kişisel verilerinizin silinmesini isteme',
+    'kvkk.contact.title': '5. İletişim',
+    'kvkk.contact.description': 'Kişisel veri korunması ile ilgili talepleriniz için bizimle iletişime geçebilirsiniz:',
+    'kvkk.contact.email': 'E-posta: kvkk@kuafi.com',
+    'kvkk.contact.phone': 'Telefon: +90 (555) 123 4567',
+    'kvkk.contact.address': 'Şirket adresimize yazılı başvuru',
+
+    // Privacy Policy - Turkish translations
+    'privacyPolicy.backToHome': 'Ana Sayfaya Dön',
+    'privacyPolicy.title': 'Gizlilik Politikası',
+    'privacyPolicy.subtitle': 'Kuafi.com\'da kişisel verilerinizin güvenliği önceliğimizdir. Bu politika, verilerinizi nasıl topladığımızı, kullandığımızı ve koruduğumuzu açıklar.',
+    'privacyPolicy.lastUpdated': 'Son güncelleme: 17 Haziran 2025',
+    'privacyPolicy.dataCollection.title': '1. Topladığımız Bilgiler',
+    'privacyPolicy.dataCollection.personal': 'Kişisel Bilgiler',
+    'privacyPolicy.dataCollection.personalItem1': 'kuafiapp@gmail.com',
+    'privacyPolicy.dataCollection.personalItem2': '+90 505 007 98 55',
+    'privacyPolicy.dataCollection.automatic': 'Otomatik Toplanan Bilgiler',
+    'privacyPolicy.dataCollection.automaticItem1': 'IP adresi ve cihaz bilgileri',
+    'privacyPolicy.dataCollection.automaticItem2': 'Tarayıcı türü ve sürümü',
+    'privacyPolicy.dataCollection.automaticItem3': 'Sayfa görüntüleme istatistikleri',
+    'privacyPolicy.dataCollection.automaticItem4': 'Hizmet kullanım verileri',
+    'privacyPolicy.dataCollection.whatsapp': 'WhatsApp Mesaj Verileri',
+    'privacyPolicy.dataCollection.whatsappItem1': 'Müşteri randevu talepleri',
+    'privacyPolicy.dataCollection.whatsappItem2': 'Mesaj içeriği (sadece randevu işlemleri için)',
+    'privacyPolicy.dataCollection.whatsappItem3': 'Mesaj zamanlaması',
+    'privacyPolicy.dataCollection.whatsappItem4': 'Randevu durum bilgileri',
+    'privacyPolicy.dataUsage.title': '2. Verileri Nasıl Kullanırız',
+    'privacyPolicy.dataUsage.service': 'Hizmet Sunumu',
+    'privacyPolicy.dataUsage.serviceDescription': 'Verilerinizi randevu asistan hizmetimizi sunmak, randevuları yönetmek ve müşterilerinizle iletişim kurmak için kullanırız.',
+    'privacyPolicy.dataUsage.improvement': 'Hizmet İyileştirme',
+    'privacyPolicy.dataUsage.improvementDescription': 'Hizmetlerimizi geliştirmek, yeni özellikler eklemek ve kullanıcı deneyimini artırmak için anonim kullanım verilerini analiz ederiz.',
+    'privacyPolicy.dataUsage.communication': 'İletişim',
+    'privacyPolicy.dataUsage.communicationDescription': 'Önemli hizmet güncellemeleri, güvenlik bildirimleri ve destek hizmetleri için sizinle iletişim kurarız.',
+    'privacyPolicy.dataUsage.legal': 'Yasal Yükümlülükler',
+    'privacyPolicy.dataUsage.legalDescription': 'Yasal gereklilikleri karşılamak, dolandırıcılığı önlemek ve güvenliği sağlamak için gerekli olduğunda verilerinizi kullanabiliriz.',
+    'privacyPolicy.dataSharing.title': '3. Veri Paylaşımı',
+    'privacyPolicy.dataSharing.principle': 'Temel İlkemiz',
+    'privacyPolicy.dataSharing.principleDescription': 'Kişisel verilerinizi hiçbir zaman üçüncü taraflarla pazarlama amaçlı paylaşmaz, satmaz veya kiraya vermeyiz.',
+    'privacyPolicy.dataSharing.limited': 'Sınırlı Paylaşım Durumları',
+    'privacyPolicy.dataSharing.limitedItem1': 'Hizmet Sağlayıcıları: WhatsApp API, bulut depolama ve analitik hizmetleri',
+    'privacyPolicy.dataSharing.limitedItem2': 'Yasal Gereklilikler: Mahkeme kararı veya yasal yükümlülük durumunda',
+    'privacyPolicy.dataSharing.limitedItem3': 'Güvenlik: Dolandırıcılık veya güvenlik tehditleri durumunda',
+    'privacyPolicy.dataSharing.limitedItem4': 'İşletme Devri: Şirket satışı veya birleşme durumunda (önceden haber vererek)',
+    'privacyPolicy.cookies.title': '4. Çerezler ve İzleme Teknolojileri',
+    'privacyPolicy.cookies.types': 'Kullandığımız Çerezler',
+    'privacyPolicy.cookies.necessary': 'Gerekli Çerezler',
+    'privacyPolicy.cookies.necessaryDescription': 'Web sitesinin temel işlevlerini sağlar',
+    'privacyPolicy.cookies.analytics': 'Analitik Çerezler',
+    'privacyPolicy.cookies.analyticsDescription': 'Site kullanımını anlamamıza yardımcı olur',
+    'privacyPolicy.cookies.functional': 'Fonksiyonel Çerezler',
+    'privacyPolicy.cookies.functionalDescription': 'Tercihlerinizi hatırlar',
+    'privacyPolicy.cookies.marketing': 'Pazarlama Çerezleri',
+    'privacyPolicy.cookies.marketingDescription': 'İlgili içerik ve reklamlar gösterir',
+    'privacyPolicy.cookies.control': 'Çerez Kontrolü',
+    'privacyPolicy.cookies.controlDescription': 'Tarayıcı ayarlarınız üzerinden çerez tercihlerini yönetebilirsiniz. Ancak bazı çerezleri devre dışı bırakmak site işlevselliğini etkileyebilir.',
+    'privacyPolicy.dataSecurity.title': '5. Veri Güvenliği',
+    'privacyPolicy.dataSecurity.measures': 'Güvenlik Önlemleri',
+    'privacyPolicy.dataSecurity.measuresItem1': 'Uçtan uca şifreleme',
+    'privacyPolicy.dataSecurity.measuresItem2': 'Düzenli güvenlik denetimleri',
+    'privacyPolicy.dataSecurity.measuresItem3': 'Çalışan eğitimleri',
+    'privacyPolicy.dataSecurity.measuresItem4': 'Güvenli veri merkezleri',
+    'privacyPolicy.dataSecurity.measuresItem5': 'Düzenli yedeklemeler',
+    'privacyPolicy.dataSecurity.breach': 'Veri İhlali',
+    'privacyPolicy.dataSecurity.breachDescription': 'Olası bir veri ihlali durumunda, sizi ve ilgili otoriteleri 72 saat içinde bilgilendireceğiz.',
+    'privacyPolicy.rights.title': '6. Haklarınız',
+    'privacyPolicy.rights.item1': 'Kişisel verilerinize erişim',
+    'privacyPolicy.rights.item2': 'Yanlış verileri düzeltme',
+    'privacyPolicy.rights.item3': 'Hesabınızı ve verilerinizi silme',
+    'privacyPolicy.rights.item4': 'Veri taşınabilirliği',
+    'privacyPolicy.rights.item5': 'İşlemeye itiraz',
+    'privacyPolicy.rights.item6': 'Onayı geri çekme',
+    'privacyPolicy.rights.exercise': 'Bu hakları kullanmak için privacy@kuafi.com adresinden bizimle iletişime geçin',
+    'privacyPolicy.contact.title': '7. İletişim',
+    'privacyPolicy.contact.description': 'Bu gizlilik politikası hakkında sorularınız için:',
+    'privacyPolicy.contact.email': 'E-posta: privacy@kuafi.com',
+    'privacyPolicy.contact.phone': 'Telefon: +90 505 007 98 55',
+    'privacyPolicy.contact.address': 'Adres: Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul',
+
+    // Terms - Turkish translations
+    'terms.backToHome': 'Ana Sayfaya Dön',
+    'terms.title': 'Kullanım Koşulları',
+    'terms.subtitle': 'Kuafi.com hizmetlerini kullanırken uymanız gereken kurallar ve koşullar.',
+    'terms.lastUpdated': 'Son güncelleme: 17 Haziran 2025',
+    'terms.general.title': '1. Genel Koşullar',
+    'terms.general.description': 'Bu kullanım koşulları, Kuafi.com hizmetlerini kullanırken uymanız gereken kural ve koşulları belirler. Hizmetlerimizi kullanarak bu koşulları kabul etmiş sayılırsınız.',
+    'terms.general.scope': 'Hizmet Kapsamı',
+    'terms.general.scopeItem1': 'WhatsApp üzerinden randevu yönetimi',
+    'terms.general.scopeItem2': 'Yapay zeka destekli müşteri iletişimi',
+    'terms.general.scopeItem3': 'Takvim entegrasyonları',
+    'terms.general.scopeItem4': 'İşletme yönetim araçları',
+    'terms.responsibilities.title': '2. Kullanıcı Sorumlulukları',
+    'terms.responsibilities.account': 'Hesap Güvenliği',
+    'terms.responsibilities.accountDescription': 'Hesap bilgilerinizin güvenliğinden sorumlusunuz. Şüpheli bir aktivite fark ederseniz derhal bizimle iletişime geçin.',
+    'terms.responsibilities.prohibited': 'Yasak Kullanımlar',
+    'terms.responsibilities.prohibitedItem1': 'Spam veya istenmeyen mesaj gönderimi',
+    'terms.responsibilities.prohibitedItem2': 'Yasa dışı veya etik olmayan faaliyetler',
+    'terms.responsibilities.prohibitedItem3': 'Sistem kötüye kullanımı',
+    'terms.responsibilities.prohibitedItem4': 'Başkalarının haklarını ihlal eden davranışlar',
+    'terms.payment.title': '3. Ödeme ve İptal Koşulları',
+    'terms.payment.conditions': 'Ödeme Koşulları',
+    'terms.payment.conditionsItem1': 'Aylık veya yıllık abonelik seçenekleri',
+    'terms.payment.conditionsItem2': 'Otomatik yenileme özelliği',
+    'terms.payment.conditionsItem3': 'Güvenli ödeme altyapısı',
+    'terms.payment.conditionsItem4': 'KDV dahil fiyatlandırma',
+    'terms.payment.cancellation': 'İptal ve İade',
+    'terms.payment.cancellationItem1': '14 gün içinde iade hakkı',
+    'terms.payment.cancellationItem2': 'İstediğiniz zaman iptal edebilirsiniz',
+    'terms.payment.cancellationItem3': 'Kullanılmayan dönem için iade',
+    'terms.payment.cancellationItem4': 'İptal sonrası dönem sonuna kadar kullanım',
+    'terms.liability.title': '4. Sorumluluk Reddi',
+    'terms.liability.description': 'Kuafi.com, hizmetlerinin kesintisiz ve hatasız çalışacağını garanti etmez. Kanunların izin verdiği ölçüde hizmetten kaynaklanabilecek zararlardan sorumlu değildir.',
+    'terms.liability.limited': 'Sınırlı Sorumluluk',
+    'terms.liability.limitedDescription': 'Kuafi.com\'un sorumluluğu, her halükarda son 12 ayda ödediğiniz hizmet bedelini aşamaz.',
+    'terms.liability.force': 'Mücbir Sebepler',
+    'terms.liability.forceDescription': 'Doğal afetler, savaş, terorizm, salgın hastalıklar gibi mücbir sebeplerden kaynaklanan kesintiler ve aksaklıklardan Kuafi.com sorumlu tutulamaz.',
+    'terms.contact.title': '5. İletişim',
+    'terms.contact.description': 'Bu kullanım koşulları hakkında sorularınız için bizimle iletişime geçebilirsiniz:',
+    'terms.contact.email': 'E-posta: legal@kuafi.com',
+    'terms.contact.phone': 'Telefon: +90 505 007 98 55',
+    'terms.contact.address': 'Adres: Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul',
   },
   en: {
     // Header
@@ -258,7 +428,7 @@ const translations = {
     
     // Hero Section
     'hero.badge.new': 'New',
-    'hero.badge.trustedBy': 'Trusted by 500+ barbers',
+    'hero.badge.trustedBy': 'Trusted by 500+ business',
     'hero.title': 'WhatsApp-Based',
     'hero.titleHighlight': '24/7 Appointment System',
     'hero.subtitle': 'AI-powered WhatsApp appointment assistant for hair salons and beauty parlors. Your customers write, your assistant responds instantly.',
@@ -652,6 +822,7 @@ const translations = {
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>('tr')
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language') as Language
@@ -661,9 +832,21 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang)
-    localStorage.setItem('language', lang)
-    document.documentElement.lang = lang
+    if (lang === language) return
+    
+    setIsTransitioning(true)
+    
+    // Smooth transition with delay
+    setTimeout(() => {
+      setLanguage(lang)
+      localStorage.setItem('language', lang)
+      document.documentElement.lang = lang
+      
+      // End transition after content changes
+      setTimeout(() => {
+        setIsTransitioning(false)
+      }, 100)
+    }, 150)
   }
 
   const t = (key: string): string => {
@@ -671,7 +854,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t, isTransitioning }}>
       {children}
     </LanguageContext.Provider>
   )

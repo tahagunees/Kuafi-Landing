@@ -1,13 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane, FaUserCog, FaChartLine, FaShieldAlt, FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp, FaCheck, FaBell, FaRobot, FaMobileAlt, FaStar, FaStarHalfAlt, FaCalendarCheck, FaPaperPlane, FaUserCog, FaChartLine, FaShieldAlt, FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaFacebook, FaLinkedin, FaBars, FaTimes } from "react-icons/fa";
 import { useLanguage } from "./contexts/LanguageContext";
 import LanguageToggle from "./components/LanguageToggle";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, isTransitioning } = useLanguage();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Smooth scroll özelliğini aktifleştir
   useEffect(() => {
@@ -25,16 +26,19 @@ export default function Home() {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMobileMenuOpen(false); // Mobile menüyü kapat
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-white">
-      <header className="sticky top-0 z-10 bg-white shadow-sm">
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
+              <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
             </div>
+            
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-1">
               <button 
                 onClick={() => scrollToSection('features')}
@@ -61,17 +65,75 @@ export default function Home() {
                 {t('nav.adminPanel')}
               </button>
             </nav>
-            <div className="flex items-center space-x-3">
+            
+            {/* Desktop CTA and Language Toggle */}
+            <div className="hidden md:flex items-center space-x-3">
               <LanguageToggle />
               <button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-md font-medium transition-colors">
                 {t('nav.tryFree')}
               </button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center space-x-3">
+              <LanguageToggle />
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2"
+              >
+                {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+              </button>
+            </div>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-gray-200 py-4"
+            >
+              <div className="flex flex-col space-y-2">
+                <button 
+                  onClick={() => scrollToSection('features')}
+                  className="text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  {t('nav.features')}
+                </button>
+                <button
+                  onClick={() => scrollToSection('how-it-works')}
+                  className="text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  {t('nav.howItWorks')}
+                </button>
+                <button
+                  onClick={() => scrollToSection('pricing')}
+                  className="text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  {t('nav.pricing')}
+                </button>
+                <button
+                  onClick={() => scrollToSection('admin-features')}
+                  className="text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  {t('nav.adminPanel')}
+                </button>
+                <button className="mx-3 mt-4 bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-2 rounded-md font-medium transition-colors text-center">
+                  {t('nav.tryFree')}
+                </button>
+              </div>
+            </motion.div>
+          )}
         </div>
       </header>
 
-      <main>
+      <motion.main
+        key={isTransitioning ? 'transitioning' : 'stable'}
+        initial={{ opacity: isTransitioning ? 0.7 : 1 }}
+        animate={{ opacity: isTransitioning ? 0.7 : 1 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
         {/* Hero Section */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
@@ -155,29 +217,29 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative mx-auto w-[280px] h-[560px] md:w-[320px] md:h-[640px]">
-                <div className="absolute inset-0 bg-[#25D366] rounded-[60px] opacity-10 transform rotate-6"></div>
-                <div className="absolute inset-0 bg-gray-100 rounded-[50px] border-4 border-gray-200 overflow-hidden">
-                  <div className="bg-[#00A884] h-16 w-full flex items-center px-4">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <FaWhatsapp className="text-white text-lg" />
+              <div className="relative mx-auto w-[240px] h-[480px] sm:w-[280px] sm:h-[560px] md:w-[320px] md:h-[640px]">
+                <div className="absolute inset-0 bg-[#25D366] rounded-[40px] sm:rounded-[60px] opacity-10 transform rotate-6"></div>
+                <div className="absolute inset-0 bg-gray-100 rounded-[35px] sm:rounded-[50px] border-2 sm:border-4 border-gray-200 overflow-hidden">
+                  <div className="bg-[#00A884] h-12 sm:h-16 w-full flex items-center px-3 sm:px-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <FaWhatsapp className="text-white text-sm sm:text-lg" />
                     </div>
-                    <div className="ml-3">
-                      <h3 className="font-medium text-white text-sm">{t('demo.assistant')}</h3>
+                    <div className="ml-2 sm:ml-3">
+                      <h3 className="font-medium text-white text-xs sm:text-sm">{t('demo.assistant')}</h3>
                       <p className="text-xs text-white/80">{t('demo.online')}</p>
                     </div>
                   </div>
-                  <div className="bg-[#ECE5DD] h-full p-4">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                      <p className="text-sm text-gray-800">{t('demo.message1')}</p>
+                  <div className="bg-[#ECE5DD] h-full p-3 sm:p-4">
+                    <div className="bg-white p-2 rounded-lg max-w-[85%] mb-2 sm:mb-3">
+                      <p className="text-xs sm:text-sm text-gray-800">{t('demo.message1')}</p>
                       <p className="text-right text-xs text-gray-500 mt-1">10:30</p>
                     </div>
-                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] ml-auto mb-3">
-                      <p className="text-sm text-gray-800">{t('demo.message2')}</p>
+                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[85%] ml-auto mb-2 sm:mb-3">
+                      <p className="text-xs sm:text-sm text-gray-800">{t('demo.message2')}</p>
                       <p className="text-right text-xs text-gray-500 mt-1">10:31</p>
                     </div>
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] mb-3">
-                      <p className="text-sm text-gray-800">{t('demo.message3')}</p>
+                    <div className="bg-white p-2 rounded-lg max-w-[85%] mb-2 sm:mb-3">
+                      <p className="text-xs sm:text-sm text-gray-800">{t('demo.message3')}</p>
                       <p className="text-right text-xs text-gray-500 mt-1">10:31</p>
                     </div>
                   </div>
@@ -195,7 +257,7 @@ export default function Home() {
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('features.subtitle')}</p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <motion.div 
                 whileHover={{ y: -10 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -291,7 +353,7 @@ export default function Home() {
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('metrics.subtitle')}</p>
             </div>
             
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               <motion.div 
                 whileHover={{ y: -10 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -380,14 +442,14 @@ export default function Home() {
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">{t('howItWorks.subtitle')}</p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               <motion.div 
                 whileHover={{ y: -10 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="bg-white p-8 rounded-xl shadow-sm text-center"
+                className="bg-white p-6 sm:p-8 rounded-xl shadow-sm text-center"
               >
                 <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
                   <FaWhatsapp className="text-[#25D366] text-3xl" />
@@ -1235,7 +1297,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+      </motion.main>
 
       {/* Footer */}
       <footer className="bg-gray-50 py-12 mt-16">

@@ -7,7 +7,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import LanguageToggle from "../components/LanguageToggle";
 
 export default function PrivacyPolicy() {
-  const { t } = useLanguage();
+  const { t, isTransitioning } = useLanguage();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f8f9fa] to-white">
@@ -16,18 +16,25 @@ export default function PrivacyPolicy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors mr-6">
-                <FaArrowLeft className="mr-2" />
-                {t('privacyPolicy.backToHome')}
+              <Link href="/" className="flex items-center text-gray-600 hover:text-gray-900 transition-colors mr-3 sm:mr-6">
+                <FaArrowLeft className="mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">{t('privacyPolicy.backToHome')}</span>
+                <span className="sm:hidden">Geri</span>
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
+              <h1 className="text-lg sm:text-2xl font-bold text-gray-900">Kuafi<span className="text-[#25D366]">.com</span></h1>
             </div>
             <LanguageToggle />
           </div>
         </div>
       </header>
 
-      <main className="py-12 px-4">
+      <motion.main 
+        className="py-12 px-4"
+        key={isTransitioning ? 'transitioning' : 'stable'}
+        initial={{ opacity: isTransitioning ? 0.7 : 1 }}
+        animate={{ opacity: isTransitioning ? 0.7 : 1 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -35,12 +42,12 @@ export default function PrivacyPolicy() {
             transition={{ duration: 0.6 }}
           >
             {/* Hero Section */}
-            <div className="text-center mb-12">
-              <div className="bg-[#e1f5e9] h-20 w-20 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <FaShieldAlt className="text-[#25D366] text-3xl" />
+            <div className="text-center mb-8 sm:mb-12">
+              <div className="bg-[#e1f5e9] h-16 w-16 sm:h-20 sm:w-20 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                <FaShieldAlt className="text-[#25D366] text-2xl sm:text-3xl" />
               </div>
-              <h1 className="text-4xl font-bold text-gray-800 mb-4">{t('privacyPolicy.title')}</h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 px-4">{t('privacyPolicy.title')}</h1>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 {t('privacyPolicy.subtitle')}
               </p>
               <p className="text-sm text-gray-500 mt-4">{t('privacyPolicy.lastUpdated')}</p>
@@ -314,7 +321,7 @@ export default function PrivacyPolicy() {
             </div>
           </motion.div>
         </div>
-      </main>
+      </motion.main>
     </div>
   );
 }
