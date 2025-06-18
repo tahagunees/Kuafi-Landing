@@ -257,9 +257,9 @@ const translations = {
     'kvkk.dataController.description': '6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verileriniz Kuafi Teknoloji A.Ş. tarafından veri sorumlusu sıfatıyla aşağıda açıklanan kapsamda işlenebilmektedir.',
     'kvkk.dataController.info': 'Veri Sorumlusu Bilgileri',
     'kvkk.dataController.company': 'Şirket: Kuafi Teknoloji A.Ş.',
-    'kvkk.dataController.address': 'Adres: Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul',
-    'kvkk.dataController.email': 'E-posta: kvkk@kuafi.com',
-    'kvkk.dataController.phone': 'Telefon: +90 (555) 123 4567',
+    
+    'kvkk.dataController.email': 'E-posta: kuafiapp@gmail.com',
+    'kvkk.dataController.phone': 'Telefon: +90 505 007 98 55',
     'kvkk.personalData.title': '2. İşlenen Kişisel Veriler',
     'kvkk.personalData.identity': 'Kimlik Bilgileri',
     'kvkk.personalData.identityItem1': 'Ad ve soyad',
@@ -299,8 +299,8 @@ const translations = {
     'kvkk.dataSecurity.rightsItem6': 'KVKK\'nın 7. maddesinde öngörülen şartlar çerçevesinde kişisel verilerinizin silinmesini isteme',
     'kvkk.contact.title': '5. İletişim',
     'kvkk.contact.description': 'Kişisel veri korunması ile ilgili talepleriniz için bizimle iletişime geçebilirsiniz:',
-    'kvkk.contact.email': 'E-posta: kvkk@kuafi.com',
-    'kvkk.contact.phone': 'Telefon: +90 (555) 123 4567',
+    'kvkk.contact.email': 'E-posta: kuafiapp@gmail.com',
+    'kvkk.contact.phone': 'Telefon: +90 505 007 98 55',
     'kvkk.contact.address': 'Şirket adresimize yazılı başvuru',
 
     // Privacy Policy - Turkish translations
@@ -370,9 +370,9 @@ const translations = {
     'privacyPolicy.rights.exercise': 'Bu hakları kullanmak için privacy@kuafi.com adresinden bizimle iletişime geçin',
     'privacyPolicy.contact.title': '7. İletişim',
     'privacyPolicy.contact.description': 'Bu gizlilik politikası hakkında sorularınız için:',
-    'privacyPolicy.contact.email': 'E-posta: privacy@kuafi.com',
+    'privacyPolicy.contact.email': 'E-posta: kuafiapp@gmail.com',
     'privacyPolicy.contact.phone': 'Telefon: +90 505 007 98 55',
-    'privacyPolicy.contact.address': 'Adres: Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul',
+    
 
     // Terms - Turkish translations
     'terms.backToHome': 'Ana Sayfaya Dön',
@@ -413,9 +413,9 @@ const translations = {
     'terms.liability.forceDescription': 'Doğal afetler, savaş, terorizm, salgın hastalıklar gibi mücbir sebeplerden kaynaklanan kesintiler ve aksaklıklardan Kuafi.com sorumlu tutulamaz.',
     'terms.contact.title': '5. İletişim',
     'terms.contact.description': 'Bu kullanım koşulları hakkında sorularınız için bizimle iletişime geçebilirsiniz:',
-    'terms.contact.email': 'E-posta: legal@kuafi.com',
+    'terms.contact.email': 'E-posta: kuafiapp@gmail.com',
     'terms.contact.phone': 'Telefon: +90 505 007 98 55',
-    'terms.contact.address': 'Adres: Maslak, Büyükdere Cad. No:123, Sarıyer/İstanbul',
+   
   },
   en: {
     // Header
@@ -772,9 +772,9 @@ const translations = {
     'privacyPolicy.rights.exercise': 'To exercise these rights, contact us at privacy@kuafi.com',
     'privacyPolicy.contact.title': '7. Contact',
     'privacyPolicy.contact.description': 'For questions about this privacy policy:',
-    'privacyPolicy.contact.email': 'Email: privacy@kuafi.com',
+    'privacyPolicy.contact.email': 'Email: kuafiapp@gmail.com',
     'privacyPolicy.contact.phone': 'Phone: +90 505 007 98 55',
-    'privacyPolicy.contact.address': 'Address: Maslak, Büyükdere Cad. No:123, Sarıyer/Istanbul',
+   
 
     'terms.backToHome': 'Back to Home',
     'terms.title': 'Terms of Service',
