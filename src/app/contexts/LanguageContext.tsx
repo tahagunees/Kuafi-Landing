@@ -702,8 +702,8 @@ const translations = {
     'kvkk.dataSecurity.rightsItem6': 'Requesting the deletion of your personal data under the conditions set forth in Article 7 of KVKK',
     'kvkk.contact.title': '5. Contact',
     'kvkk.contact.description': 'You can contact us for your requests regarding personal data protection:',
-    'kvkk.contact.email': 'Email: kvkk@kuafi.com',
-    'kvkk.contact.phone': 'Phone: +90 (555) 123 4567',
+    'kvkk.contact.email': 'Email: kuafiapp@gmail.com',
+    'kvkk.contact.phone': 'Phone: +90 505 007 98 55',
     'kvkk.contact.address': 'Written application to our company address',
 
     'privacyPolicy.backToHome': 'Back to Home',
@@ -814,9 +814,9 @@ const translations = {
     'terms.liability.forceDescription': 'Kuafi.com cannot be held responsible for interruptions and disruptions caused by force majeure such as natural disasters, war, terrorism, epidemic diseases.',
     'terms.contact.title': '5. Contact',
     'terms.contact.description': 'You can contact us for questions about these terms of use:',
-    'terms.contact.email': 'Email: legal@kuafi.com',
+    'terms.contact.email': 'Email: kuafiapp@gmail.com',
     'terms.contact.phone': 'Phone: +90 505 007 98 55',
-    'terms.contact.address': 'Address: Maslak, Büyükdere Cad. No:123, Sarıyer/Istanbul',
+    
   }
 }
 
